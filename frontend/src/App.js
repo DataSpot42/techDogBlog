@@ -1,4 +1,4 @@
-import Navbar from "./components/NavBar"
+
 import HomePage from "./pages/BlogHome"
 
 
@@ -10,7 +10,7 @@ const App = () => {
       <BrowserRouter>
       
         <div>
-        <Navbar />
+        
         <Routes>
         
           
