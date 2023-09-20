@@ -1,7 +1,7 @@
 
 import HomePage from "./pages/BlogHome.js"
 
-
+import Login from "./jess"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 const App = () => {
@@ -19,7 +19,10 @@ const App = () => {
             path='/'
             element={<HomePage />}
           />
-         
+          <Route 
+            path ='/'
+            element = {<Login />}
+          />         
         </Routes>
         </div>
       </BrowserRouter>
