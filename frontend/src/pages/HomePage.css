@@ -1,3 +1,52 @@
-p{
-    color:red;
+:root{
+    --logoBlue: #6BB4FD;
+}
+
+* {
+    display:border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body{background-color: #212121;}
+
+/* nav */
+nav{
+    box-shadow: 0 1px 8px #6BB4FD;
+    padding:10px;
+    overflow: none;
+    height: 80px;
+    
+    
+    
+}
+
+h2 {
+    color: #6BB4FD;
+    margin: 10px;
+    font-size: 40px;
+    text-shadow: 1px 3px #E6F4F1;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+nav > ul > #logo {
+    margin-left: 10px;
+}
+li{
+    list-style: none;
+    display: inline;
+}
+img{
+    max-height: 80px;
+}
+.icon{
+    float:right;
+    display: inline;
+}
+.icon > li > img {
+    max-height: 40px;
+    margin-top: 20%;
+    margin-right: 5px;
+}
+.icon > li{
+    
 }
