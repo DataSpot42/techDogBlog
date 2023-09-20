@@ -14,11 +14,11 @@ function HomePage() {
           </ul>
   </nav>
   <div class="grid-wrap">
-<h2> Welcome to TechDog</h2>
+<h2> Welcome to TechDog, here we are</h2>
 
   </div>
   </div>
     );
   }
 
-  export default HomePage
+export default HomePage

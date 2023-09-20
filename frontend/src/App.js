@@ -1,5 +1,5 @@
 
-import HomePage from "./pages/BlogHome"
+import HomePage from "./pages/BlogHome.js"
 
 
 import { BrowserRouter, Route, Routes } from "react-router-dom"
