@@ -1,30 +1,24 @@
-/* import Navbar from "./components/Navbar" */
-import HomePage from "./pages/blogHome"
+import Navbar from "./components/NavBar"
+import HomePage from "./pages/BlogHome"
 
-/* import Login from "./pages/Login" */
 
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-/* import './component/app.css' */
+
 const App = () => {
   return (
-    <div className="main">
+    <div>
       <BrowserRouter>
       
         <div>
-        {/* <Navbar /> */}
+        <Navbar />
         <Routes>
-        <Route
+        
+          
+          
+          <Route
             path='/'
             element={<HomePage />}
           />
-         {/*  <Route
-            path='/basket/:id'
-            element={<Basket />}
-          />
-          <Route
-            path='/shop/:id'
-            element={<Shop />}
-          /> */}
          
         </Routes>
         </div>
