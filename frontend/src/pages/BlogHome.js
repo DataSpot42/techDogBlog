@@ -1,4 +1,4 @@
-import './HomePage.css'
+import './homePage.css'
 
 function HomePage() {
     return (
@@ -14,7 +14,7 @@ function HomePage() {
           </ul>
   </nav>
   <div class="grid-wrap">
-<h2> Welcome to TechDog, here we are</h2>
+<h2> Welcome to TechDog</h2>
 
   </div>
   </div>

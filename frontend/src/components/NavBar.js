@@ -10,12 +10,16 @@ const Navbar = () => {
                     
                    
                     <div>
+                    <Link  to='/'>
+                        Home
+                  
+                    </Link>
                 
                 </div>
                 
                 <div className='navBar'>
-                     <Link  to='/'>
-                        NavBarHere
+                     <Link  to='/Login'>
+                        Login
                   
                     </Link>
                     
