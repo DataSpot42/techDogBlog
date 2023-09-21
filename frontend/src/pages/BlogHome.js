@@ -1,11 +1,20 @@
-import './HomePage.css'
+import './homePage.css'
 
 function HomePage() {
     return (
      <div>
+      <div className="top">
+           <img id = "logo" src="logo.png"></img>
+           <h1> WELCOME TO TECHDOG</h1>
+        
+      </div>
+      
+        <p className = "bg">
+           </p>
+           
      <nav> 
       <ul>
-      <li id="logo"><img src="logo.png"></img></li> 
+      
 
        <div class="icon">
           <li id="login-icon"><img src="icons8-home-250.png"/> </li>
@@ -13,10 +22,10 @@ function HomePage() {
           </div>
           </ul>
   </nav>
-  <div class="grid-wrap">
-<h2> Welcome to TechDog, here we are</h2>
+ 
 
-  </div>
+
+  
   </div>
     );
   }
