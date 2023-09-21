@@ -4,9 +4,18 @@ import './homePage.css'
 function HomePage() {
     return (
      <div>
+      <div className="top">
+           <img id = "logo" src="logo.png"></img>
+           <h1> WELCOME TO TECHDOG</h1>
+        
+      </div>
+      
+        <p className = "bg">
+           </p>
+           
      <nav> 
       <ul>
-      <li id="logo"><img src="techdoglogo.png" alt="logo"></img></li> 
+
 
        <div class="icon">
           <li id="login-icon"><img src="./techdoglogo.png" alt="logo"></img> </li>
@@ -14,10 +23,10 @@ function HomePage() {
           </div>
           </ul>
   </nav>
-  <div class="grid-wrap">
-<h2> Welcome to TechDog here</h2>
 
-  </div>
+
+
+  
   </div>
     );
   }
