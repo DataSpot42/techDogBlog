@@ -1,5 +1,5 @@
 import './homePage.css'
-
+import Logo from '../components/images/logo.png'
 function HomePage() {
     return (
      <div>
