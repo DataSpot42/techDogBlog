@@ -1,12 +1,15 @@
 import './homePage.css'
-
+import Logo from '../components/images/logo.png'
 function HomePage() {
     return (
      <div>
       <div className="top">
-           <img id = "logo" src="logo.png"></img>
+           <img className = "logo" src = {Logo} ></img>
            <h1> WELCOME TO TECHDOG</h1>
-        
+           <div className = "button">
+         <p className = "button1"> login </p>
+         <p className= "button2"> signup</p>
+         </div>
       </div>
       
         <p className = "bg">
