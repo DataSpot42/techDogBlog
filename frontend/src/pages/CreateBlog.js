@@ -2,9 +2,10 @@ import { useState } from "react"
 import { addBlog } from "../api/addBlog"
 import { useNavigate } from "react-router-dom"
 
+
 import "../components/addblog.css"
 
-const CreatBlog = () => {
+const CreateBlog = () => {
     /* const [timeStamp, setTimeStamp] = useState();
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
@@ -16,6 +17,7 @@ const CreatBlog = () => {
 
     const [formData, setFormData] = useState({title: "",text: "",group: ""});
     const [selectedOption, setSelectedOption] = useState("option1");
+    
 
 	const  handleDropdownChange = (event) => {
 		setSelectedOption(event.target.value);
@@ -27,10 +29,29 @@ const CreatBlog = () => {
     /* const handlerBlogInput = async (e) => {
         e.preventDefault() */
 
-        const handleSubmit = (event) => {
-            event.preventDefault();
-            alert(`title: ${formData.title}, text: ${formData.text}, Group: ${selectedOption}`
-            );
+        const handleChange = (event) => {
+            const { name, value } = event.target;
+            setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+          };
+
+        const handleSubmit =  async (e) => {
+            e.preventDefault();
+            alert(`title: ${formData.title}, text: ${formData.text}, Group: ${selectedOption}`);
+            let timestamp = Date.now();
+            let blogObj = { 
+                userID: 123,
+                blogID: 456,
+                image: "imagehere",
+                
+                likes: 0,
+                title: formData.title,
+                text: formData.text,
+                timeStamp: timestamp,
+                group: selectedOption
+            }
+            let response = await addBlog(blogObj)  
+
+
         };    
 
 
@@ -39,25 +60,28 @@ const CreatBlog = () => {
             <label htmlFor="title">Title:</label>
             <input type="title" id="title" name="title" value={formData.title} onChange={handleChange}/>
       
-            <label htmlFor="text">Text:</label>
-            <input type="text" id="text" name="text" value={formData.text} onChange={handleChange}/>
+           
 
             <label>
 			Select an option:
-				<select  value={formData.group} onChange={handleDropdownChange}>
-				<option  value="option1">Option 1</option>
-				<option  value="option2">Option 2</option>
-				<option  value="option3">Option 3</option>
+				<select  value={selectedOption} onChange={handleDropdownChange}>
+				<option  value="Networking">Networking</option>
+				<option  value="Soft Dev">Soft Dev</option>
+				<option  value="Cloud Engineering">Cloud Engineering</option>
+                <option  value="IT Support">IT Support</option>
+                <option  value="Web Design">Web Design</option>
+                <option  value="Consumer Tech">Consumer Tech</option>
 			</select>
 		</label>
-		<p>Selected option: {formData.group}</p>
+		<p>Selected option: {selectedOption}</p>
 
       
-            <label htmlFor="image">Message:</label>
-            <textarea id="image" name="image" value={formData.image} onChange={handleChange}/>
+            <label htmlFor="image">Text:</label>
+            <textarea id="text" name="text" value={formData.text} onChange={handleChange}/>
       
             <button type="submit">Submit</button>
           </form>
         )
     }
+    export default CreateBlog
 

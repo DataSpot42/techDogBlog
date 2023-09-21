@@ -1,4 +1,4 @@
-import blogs from "../../../backend/models/blogs"
+
 
 const API_URL = `http://localhost:4000`
 
@@ -15,7 +15,7 @@ export const addBlog = async (blog) => {
         image: blog.image,
         tags: blog.tags,
         likes: blog.likes,
-        comments: blogs.comments
+        comments: blog.comments
         }
     console.log(obj)
     const response = await fetch(`${API_URL}/blogs/item`,{
