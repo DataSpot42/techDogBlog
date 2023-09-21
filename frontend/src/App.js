@@ -1,9 +1,10 @@
 
-
-import HomePage from "./pages/BlogHome.js"
-
-
 import Login from "./jess"
+import HomePage from "./pages/BlogHome.js"
+import Navbar from "./components/NavBar"
+
+
+
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 const App = () => {
@@ -12,17 +13,17 @@ const App = () => {
       <BrowserRouter>
       
         <div>
-        
+        <Navbar />
         <Routes>
         
           
-          
+        
           <Route
             path='/'
             element={<HomePage />}
           />
           <Route 
-            path ='/'
+            path ='/Login'
             element = {<Login />}
           />         
         </Routes>

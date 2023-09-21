@@ -1,5 +1,5 @@
 import './homePage.css'
-import Logo from '../components/images/logo.png'
+
 function HomePage() {
     return (
      <div>
@@ -17,15 +17,15 @@ function HomePage() {
            
      <nav> 
       <ul>
-      
+
 
        <div class="icon">
-          <li id="login-icon"><img src="icons8-home-250.png"/> </li>
-              <li id="home-icon"><img src="icons8-authentication-240.png"/></li>
+          <li id="login-icon"><img src="./techdoglogo.png" alt="logo"></img> </li>
+              <li id="home-icon"><img src="../frontend/src/pages/techdoglogo.png" alt="logo"  width="50" height="60"/></li>
           </div>
           </ul>
   </nav>
- 
+
 
 
   
