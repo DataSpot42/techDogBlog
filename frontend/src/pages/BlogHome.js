@@ -1,20 +1,21 @@
 import './homePage.css'
 
+
 function HomePage() {
     return (
      <div>
      <nav> 
       <ul>
-      <li id="logo"><img src="logo.png"></img></li> 
+      <li id="logo"><img src="techdoglogo.png" alt="logo"></img></li> 
 
        <div class="icon">
-          <li id="login-icon"><img src="icons8-home-250.png"/> </li>
-              <li id="home-icon"><img src="icons8-authentication-240.png"/></li>
+          <li id="login-icon"><img src="./techdoglogo.png" alt="logo"></img> </li>
+              <li id="home-icon"><img src="../frontend/src/pages/techdoglogo.png" alt="logo"  width="50" height="60"/></li>
           </div>
           </ul>
   </nav>
   <div class="grid-wrap">
-<h2> Welcome to TechDog</h2>
+<h2> Welcome to TechDog here</h2>
 
   </div>
   </div>
