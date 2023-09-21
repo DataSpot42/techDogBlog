@@ -18,10 +18,16 @@ const Navbar = () => {
                 </div>
                 
                 <div className='navBar'>
+                     <Link  to='/CreateBlog'>
+                        CreateBlog
+                  
+                    </Link>
+                    </div>
+                    <div className='navBar'>
                      <Link  to='/Login'>
                         Login
                   
-                    </Link>
+                    </Link>    
                     
         </div>
                    
