@@ -22,14 +22,16 @@ const Navbar = () => {
         }
     }
 
-    
-
     return (
         <div>
             <header>
                 <div className='nav-wrap'>
                     <ul className="nav">
                         <li><img className="logo" src={Logo} ></img> </li>
+
+                        <div className='nav-btns'> 
+                        <li className="SearchBar"><SearchBar /> </li>
+                        </div>
 
                         <div className='flex justify-between bg-gray-200 w-full p-4'>
                             <h1 className='text-center text-2xl font-bold'>
@@ -41,12 +43,9 @@ const Navbar = () => {
                                 <Link to='/signin'>Sign in</Link>
                             )}
                         </div>
-                      
-                        <div className='nav-btns'> 
-                        <li className="SearchBar"><SearchBar /> </li>
+                        <div className='nav-btns'>
 
                             <li className="button2 button">    <TbListSearch /></li>
-                           
                             <li className="button1 button"> <RiLoginBoxFill />
 
                             </li>
