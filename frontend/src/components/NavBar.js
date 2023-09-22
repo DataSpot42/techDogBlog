@@ -8,6 +8,7 @@ import SearchBar from './Search.js'
 
 
 const Navbar = () => {
+    const [searchOn, setsearchOn] = useState(true)
     return (
         <div>
             <header>
