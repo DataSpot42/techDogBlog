@@ -7,7 +7,9 @@ import Protected from './pages/Protected';
 import { AuthContextProvider } from './components/AuthContext';
 import Account from './pages/Account';
 import Signin from './pages/SignIn';
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import RegPage from './pages/RegPage'
 import AllBlogs from './pages/ShowAllBlogs'
 
