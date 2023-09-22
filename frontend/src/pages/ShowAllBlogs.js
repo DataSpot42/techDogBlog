@@ -6,7 +6,7 @@ const AllBlogs = async () => {
     console.log("Welcome to the Blogs Page")
     const [blogs,setBlogs] = useState()
     let response = await readBlogs()
-    setBlogs(blogs)
+    setBlogs(response)
     console.log(blogs)
 
     if (!blogs) return <h1>Loading</h1>
@@ -18,3 +18,4 @@ const AllBlogs = async () => {
         </>
     )
 }
+export default AllBlogs;
