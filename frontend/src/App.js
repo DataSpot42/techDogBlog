@@ -1,7 +1,8 @@
 
 import Login from "./jess"
-import HomePage from "./pages/BlogHome.js"
+import HomePage from "../src/pages/BlogHome"
 import Navbar from "./components/NavBar"
+import CreateBlog from "./pages/CreateBlog"
 
 
 
@@ -15,6 +16,10 @@ const App = () => {
         <div>
         <Navbar />
         <Routes>
+        <Route
+            path='/createBlog'
+            element={<CreateBlog />}
+          />
         
           
         

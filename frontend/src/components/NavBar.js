@@ -16,11 +16,15 @@ const Navbar = () => {
                         <div className='nav-btns'>
                             <li className="button2 button">    <TbListSearch /></li>
                             <li className="button1 button"> <RiLoginBoxFill />
-                            
+
                             </li>
                         </div>
                     </ul>
                 </div>
+                
+              
+                    
+
             </header>
         </div>
     )
