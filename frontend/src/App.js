@@ -7,7 +7,11 @@ import Protected from './pages/Protected';
 import { AuthContextProvider } from './components/AuthContext';
 import Account from './pages/Account';
 import Signin from './pages/SignIn';
+<<<<<<< HEAD
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+=======
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+>>>>>>> upstream/main
 import RegPage from './pages/RegPage'
 
 const App = () => {
