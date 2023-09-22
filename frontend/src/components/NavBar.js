@@ -3,10 +3,7 @@ import Logo from './images/logo.png'
 import { RiLoginBoxFill } from 'react-icons/ri'
 import { TbListSearch } from 'react-icons/tb'
 import './navBar.css'
-import { useState } from "react"
-
-
-
+import SearchBar from './Search.js'
 
 
 
@@ -18,13 +15,11 @@ const Navbar = () => {
                 <div className='nav-wrap'>
                     <ul className="nav">
                         <li><img className="logo" src={Logo} ></img> </li>
-                        <div className='nav-btns'>
-                            {searchOn && (
-                            <li onClick={() => setsearchOn(!searchOn)} className="button2 button">    <TbListSearch /></li>
-                            )}
-                            <li> </li>
-
-                            <li  className="button1 button"> <RiLoginBoxFill />
+                        <div className='nav-btns'> 
+                        <li className="SearchBar"><SearchBar /> </li>
+                            <li className="button2 button">    <TbListSearch /></li>
+                           
+                            <li className="button1 button"> <RiLoginBoxFill />
 
                             </li>
                         </div>
