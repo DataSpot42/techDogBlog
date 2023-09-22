@@ -1,0 +1,21 @@
+import { Link } from "react-router-dom"
+
+const Card = ({ blog }) => {
+
+    return (
+        <div className='card_item'>
+            <div className="card_inner">
+                <!-- <img className='card_img' src={blo.productImage} alt="" /> -->
+            </div>
+            <div className="detail-box">
+            <div className="stylehere">{blog.title}</div>
+            <div>{blog.text}</div>
+            
+            </div>
+            
+            
+        </div>
+
+    )
+}
+export default Card
