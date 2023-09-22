@@ -1,32 +1,26 @@
 import { Link } from 'react-router-dom'
+import Logo from './images/logo.png'
+import { RiLoginBoxFill } from 'react-icons/ri'
+import { TbListSearch } from 'react-icons/tb'
+import './navBar.css'
 
 
 
 const Navbar = () => {
     return (
-        <div> 
+        <div>
             <header>
-                
-                    
-                   
-                    <div>
-                    <Link  to='/'>
-                        Home
-                  
-                    </Link>
-                
+                <div className='nav-wrap'>
+                    <ul className="nav">
+                        <li><img className="logo" src={Logo} ></img> </li>
+                        <div className='nav-btns'>
+                            <li className="button2 button">    <TbListSearch /></li>
+                            <li className="button1 button"> <RiLoginBoxFill />
+                            
+                            </li>
+                        </div>
+                    </ul>
                 </div>
-                
-                <div className='navBar'>
-                     <Link  to='/Login'>
-                        Login
-                  
-                    </Link>
-                    
-        </div>
-                   
-                    
-
             </header>
         </div>
     )
