@@ -5,14 +5,16 @@ import Card from '../components/Card'
 const AllBlogs = async () => {
     console.log("Welcome to the Blogs Page")
     const [blogs,setBlogs] = useState()
-    let response = await getBlogs()
-    setPunks(blogs)
+    let response = await readBlogs()
+    setBlogs(blogs)
     console.log(blogs)
 
     if (!blogs) return <h1>Loading</h1>
     return (
+        <>
         <div>
-            {/* {blogs ? blogs.map((blogs,index =>{Card key={blog.id}})) : } */}
+            {blogs ? blogs.map((blogs,index) => <Card key={blogs.id} />) : <p>Loading...</p> } 
         </div>
+        </>
     )
 }
