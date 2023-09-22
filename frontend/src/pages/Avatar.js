@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import { createAvatar } from '@dicebear/core';
 import { bottts } from '@dicebear/collection';
 
-function RegPage() {
+function Avatar() {
   const avatar = useMemo(() => {
     return createAvatar(bottts, {
       size: 128,
