@@ -8,7 +8,7 @@ import { AuthContextProvider } from './components/AuthContext';
 import Account from './pages/Account';
 import Signin from './pages/SignIn';
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-/* import RegPage from './pages/RegPage' */
+import RegPage from './pages/RegPage'
 
 const App = () => {
   return (
@@ -33,10 +33,10 @@ const App = () => {
             path ='/Login'
             element = {<Login />}
           />
-          {/* <Route 
+          <Route 
             path ='/RegPage'
             element = {<RegPage />}
-          /> */}
+          />
           <Route path='/signin' element={<Signin />} />
           <Route
             path='/account'
