@@ -21,7 +21,7 @@ const blogSchema = new Schema({
         type: String
     },
     group: {
-        type: Number
+        type: String
     },
     image: {
         type: String

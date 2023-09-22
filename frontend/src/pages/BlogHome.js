@@ -1,7 +1,8 @@
 import './homePage.css'
-import Logo from '../components/images/logo.png'
 import { RiLoginBoxFill } from 'react-icons/ri'
 import { TbListSearch } from 'react-icons/tb'
+import Logo from '../components/images/logo.png'
+
 function HomePage() {
 
 
