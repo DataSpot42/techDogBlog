@@ -1,7 +1,7 @@
 import './homePage.css'
 
 function HomePage() {
-
+  console.log()
 
   return (
     <div className='container'>

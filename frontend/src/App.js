@@ -7,6 +7,7 @@ import Protected from './pages/Protected';
 import { AuthContextProvider } from './components/AuthContext';
 import Account from './pages/Account';
 import Signin from './pages/SignIn';
+import Avatar from './pages/Avatar';
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -39,6 +40,10 @@ const App = () => {
           <Route 
             path ='/RegPage'
             element = {<RegPage />}
+          />
+          <Route 
+            path ='/Avatar'
+            element = {<Avatar />}
           />
           <Route 
             path ='/ShowAllBLogs'
