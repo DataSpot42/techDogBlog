@@ -14,7 +14,7 @@ const RegPage = () => {
     const [comments, setComments] = useState([]); */
 
     const [formData, setFormData] = useState({title: "",text: "",group: ""});
-    const [selectedOption, setSelectedOption] = useState("option1");
+    const [selectedOption, setSelectedOption] = useState("Choose");
     
 
 	const  handleDropdownChange = (event) => {

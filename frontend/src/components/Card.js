@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom"
 
-const Card = ({ blog }) => {
+const Card = ({blog}) => {
+    console.log(blog)
+    
 
     return (
         <div className='card_item'>
@@ -9,8 +11,8 @@ const Card = ({ blog }) => {
                 {/* <img className='card_img' src={blog.} alt="" /> */}
             </div>
             <div className="detail-box">
-            <div className="stylehere">{blog.title}</div>
-            <div>{blog.text}</div>
+            <div className="stylehere">{blog.text}</div>
+            <div>{blog.image}</div>
             
             </div>
             
