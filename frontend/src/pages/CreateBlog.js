@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { addBlog } from "../api/addBlog"
 import { useNavigate } from "react-router-dom"
 
@@ -6,6 +6,15 @@ import { useNavigate } from "react-router-dom"
 import "../components/addblog.css"
 
 const CreateBlog = () => {
+
+    const [user, setUser] = useState([]);
+    useEffect(() => {
+      const items = JSON.parse(localStorage.getItem('userName'));
+      if (items) {
+       setUser(items);   // getting googleAuto data from local storage
+      }
+    }, []);
+    console.log(user)
     
     /* const [timeStamp, setTimeStamp] = useState();
     const [title, setTitle] = useState("");
@@ -40,7 +49,7 @@ const CreateBlog = () => {
             alert(`title: ${formData.title}, text: ${formData.text}, Group: ${selectedOption}`);
             let timestamp = Date.now();
             let blogObj = { 
-                userID: 123,
+                userID: user.uid,
                 blogID: 456,
                 image: "imagehere",
                 

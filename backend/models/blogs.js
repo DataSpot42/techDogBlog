@@ -6,7 +6,7 @@ const Schema = mongoose.Schema
 // what the data will look like
 const blogSchema = new Schema({
     userID: {
-        type: Number
+        type: String
     },
     blogID: {
         type: Number

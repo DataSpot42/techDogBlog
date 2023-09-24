@@ -1,5 +1,6 @@
 import React from 'react';
 import { UserAuth } from '../components/AuthContext';
+import { useState, useEffect } from "react"
 
 const Account = () => {
   const { logOut, user } = UserAuth();
@@ -11,6 +12,12 @@ const Account = () => {
       console.log(error);
     }
   };
+  
+
+useEffect(() => {
+  
+  localStorage.setItem('userName', JSON.stringify(user));
+}, [user]);
 
   return (
     <div className='w-[300px] m-auto'>

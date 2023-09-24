@@ -6,9 +6,6 @@ import './navBar.css'
 import { UserAuth } from './AuthContext';
 import SearchBar from './Search.js'
 
-
-
-
 const Navbar = () => {
 
     const { user, logOut } = UserAuth();
