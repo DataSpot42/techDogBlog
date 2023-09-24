@@ -1,68 +1,76 @@
 import Avatar from './Avatar.js'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { addBlog } from "../api/addBlog"
 import { useNavigate } from "react-router-dom"
 
 const RegPage = () => {
-    /* const [timeStamp, setTimeStamp] = useState();
-    const [title, setTitle] = useState("");
-    const [text, setText] = useState("");
-    const [group, setGroup] = useState("");
-    const [image, setImage] = useState("");
-    const [tags, setTags] = useState ([]);
-    const [likes, setLikes] = useState([]);
-    const [comments, setComments] = useState([]); */
+    const [chosenAvatar,SetChosenAvator] = useState("")
+    const [gender,SetGender] = useState("")
+    const [user, setUser] = useState([]);
+    const [formData, setFormData] = useState(
+        {userName: "",aboutMe: "",group: "", gender: "", realName: "", email: "", userID: ""});
+    const [selectedOption, setSelectedOption] = useState("Select");
 
-    const [formData, setFormData] = useState({title: "",text: "",group: ""});
-    const [selectedOption, setSelectedOption] = useState("Choose");
+    useEffect(() => {
+        const items = JSON.parse(localStorage.getItem('userName'));
+        if (items) {
+         setUser(items);
+         
+         setFormData((prevFormData) => 
+         ({ ...prevFormData, realName: user.displayName, email: user.email, userID: user.uid }));
+         console.log(formData)
+        }
+      }, []);
+
+    console.log(formData)
     
 
 	const  handleDropdownChange = (event) => {
 		setSelectedOption(event.target.value);
+        setFormData((prevFormData) => ({ ...prevFormData, group: selectedOption }));
         
 	};
 
     const navigate = useNavigate();
 
-    /* const handlerBlogInput = async (e) => {
-        e.preventDefault() */
+   
 
         const handleChange = (event) => {
             const { name, value } = event.target;
             setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+            
           };
 
+        
         const handleSubmit =  async (e) => {
             e.preventDefault();
-            alert(`title: ${formData.title}, text: ${formData.text}, Group: ${selectedOption}`);
-            /* let timestamp = Date.now();
-            let blogObj = { 
-                userID: 123,
-                blogID: 456,
-                image: "imagehere",
-                
-                likes: 0,
-                title: formData.title,
-                text: formData.text,
-                timeStamp: timestamp,
-                group: selectedOption
-            }
-            let response = await addBlog(blogObj)  
-            */
-
+            console.log(formData)
+            
+            alert(`title: ${formData.userName}, text: ${formData.aboutMe}, Group: ${formData.group}, Gender ${formData.gender} Avatar: ${formData.avatar}`);
+            
         };    
+        const avatarHandler = (url) => {
+            console.log(url)
+            SetChosenAvator(url)
+            setFormData((prevFormData) => ({ ...prevFormData, avatar: url }));
+        }
 
 
         return (
+            <div>
+            <p> Choose Your Avatar: <Avatar avatarHandler={avatarHandler}/> </p>
             <form onSubmit={handleSubmit}>
-            <label htmlFor="title">Title:</label>
-            <input type="title" id="title" name="title" value={formData.title} onChange={handleChange}/>
-      
-           
+            <label htmlFor="userName">User Name:</label>
+            <input type="userName" id="userName" name="userName" value={formData.title} onChange={handleChange}/>
+            <p>Gender</p>
+            <input type="radio" id="radio" name="gender" value="Male" onChange={handleChange}/>
+            <label for="male">Male</label>
+            <input type="radio" id="radio" name="gender" value="Female" onChange={handleChange}/>
+            <label for="female">Female</label>
 
             <label>
 			Select an option:
-				<select  value={selectedOption} onChange={handleDropdownChange}>
+				<select  value={formData.group} onChange={handleDropdownChange}>
 				<option  value="Networking">Networking</option>
 				<option  value="Soft Dev">Soft Dev</option>
 				<option  value="Cloud Engineering">Cloud Engineering</option>
@@ -74,13 +82,19 @@ const RegPage = () => {
 		<p>Selected option: {selectedOption}</p>
 
       
-            <label htmlFor="image">Text:</label>
-            <textarea id="text" name="text" value={formData.text} onChange={handleChange}/>
+            <label htmlFor="aboutMe">About Me:</label>
+            <textarea id="aboutMe" name="aboutMe" value={formData.aboutMe} onChange={handleChange}/>
       
-            <button type="submit">Submit</button>
-        <p> {Avatar} </p>
+            
+        
+            
+        <button type="submit">Submit</button>
+        
           </form>
+          </div>
         )
+        
+
     }
     
 

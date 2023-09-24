@@ -2,18 +2,18 @@
 import { useState } from 'react';
 import { useMemo } from 'react';
 
-function Avatar() {
+function Avatar({avatarHandler}) {
     
 
-
+    let avatarChosen=""
     let avatarArray = []
     for (let i=0; i<50; i++){
     avatarArray.push(`https://api.dicebear.com/7.x/bottts/png?seed=${i}`)}
-    console.log(avatarArray)
+    
     
     return (
         <div>
-            <ul>{avatarArray.map((url,index) => <li key={url}> {index+1}:<img src={url} alt="Avatar"/> </li>)}</ul>
+            <ul>{avatarArray.map((url,index) => <li key={url}> {<button onClick={(e) => avatarHandler(url)}><img src={url} alt="Avatar"/> </button>} </li>)}</ul>
         </div>
 
     )   
