@@ -7,16 +7,17 @@ grid-column-gap: 0px;
 grid-row-gap: 0px;
     max-width: 95%;
     margin: 0 auto;
+    grid-column-gap: 20px;
+   
    
     }
 
-    .grid-side { grid-area: 1 / 1 / 6 / 2; }
+.grid-side-container { grid-area: 1 / 1 / 6 / 2; }
 /* Search bar */
 #search-container{
     min-width: 350px;
     margin-bottom: 30px;
     color: white;
-
 }
 #SearchAllbg{
     background: red;
@@ -47,9 +48,10 @@ grid-row-gap: 0px;
     display: flex;
     justify-content: center;
     width: 100%;
-   
 }
+/* side column */
 .grid-side{
-    background-color: #383836;
-   
+    background-color: #424241;
+    border-radius: 20px;
+  height: 100%;
 }

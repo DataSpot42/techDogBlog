@@ -47,8 +47,8 @@ const AllBlogs = () => {
         
 <div className="all-bg-grid">
     <Card />
-    <div className="grid-side">
-        
+    <div className="grid-side-container">
+        <div className="grid-side"></div>
         </div>
 </div>
         </>
