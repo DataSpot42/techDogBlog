@@ -1,8 +1,9 @@
 .card_item{
   border-radius: 5%;
     background-color: #3c404d;
-    min-height: 350px;
+    min-height: 400px;
     min-width: 250px;
+    
  
 }
 
@@ -18,11 +19,48 @@
 .detail-box{
     padding: 10px;
     max-height: 130px;
-    overflow: hidden;
+    display: block;
+  
+   
+    
+   
+}
+.detail-box > h1 {
+    font-size: 25px;
 }
 
-.subjectGroup{
+.detail-box > .cardText {
+    color: white;
+    font-size: 13px;
+    margin-top: 4px;
+    
+ 
+    
+}
+.display-profile-card > img{
+    max-height: 30px;
+    margin-right: 15px;
 
+}
+.display-profile-card{
+    display: flex;
+    background-color: #4c5161;
+    width: inherit;
+    justify-content:flex-start;
+    align-items: center;
+    padding: 5px;
+    font-weight: 600;
+    
+    
+   
+
+}
+.card-bottom{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+   
 }
 
 .subjectGroup > p {
@@ -36,3 +74,15 @@
     margin-left: 8px;
 }
 
+.tags-cards{
+    padding: 8px;
+}
+
+.card_item:hover{
+    border-radius: 8px;
+    box-shadow: 3px 1px 10px lightgray;
+    backdrop-filter: blur(6.1px);
+    -webkit-backdrop-filter: blur(6.1px);
+    background-color: #4a4e5a;
+    
+}
