@@ -46,12 +46,12 @@ const CreateBlog = () => {
 
         const handleSubmit =  async (e) => {
             e.preventDefault();
-            alert(`title: ${formData.title}, text: ${formData.text}, Group: ${selectedOption}`);
+            alert(`title: ${formData.title}, text: ${formData.text}, Group: ${selectedOption} Image:${formData.image}`);
             let timestamp = Date.now();
             let blogObj = { 
                 userID: user.uid,
                 blogID: 456,
-                image: "imagehere",
+                image: formData.image,
                 
                 likes: 0,
                 title: formData.title,
