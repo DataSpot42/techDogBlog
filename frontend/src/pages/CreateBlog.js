@@ -86,8 +86,10 @@ const CreateBlog = () => {
 		<p>Selected option: {selectedOption}</p>
 
       
-            <label htmlFor="image">Text:</label>
+            <label htmlFor="text">Text:</label>
             <textarea id="text" name="text" value={formData.text} onChange={handleChange}/>
+            <label htmlFor="text">Add Image URL:</label>
+            <input id="text" name="text" value={formData.image} onChange={handleChange}/>
       
             <button type="submit">Submit</button>
           </form>

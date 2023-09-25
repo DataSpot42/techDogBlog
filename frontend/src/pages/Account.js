@@ -1,9 +1,30 @@
 import React from 'react';
 import { UserAuth } from '../components/AuthContext';
 import { useState, useEffect } from "react"
+import { readUsers } from '../api/readUsers';
 
 const Account = () => {
+  const [users,setUsers] = useState([])
   const { logOut, user } = UserAuth();
+  useEffect(() => {
+  
+    localStorage.setItem('userName', JSON.stringify(user));
+  }, [user]);
+  console.log(user.uid)
+  useEffect(() => {
+    const fetchUsers = async () => {
+        let data = await readUsers() // read blogs from database   
+        setUsers(data)
+    }
+    fetchUsers()},[10])
+   console.log(users) 
+   for (let i=0; i<users.length; i++) {
+    if (users[i].userID===user.iud) {
+      console.log('found you')
+
+    } else{ console.log('you are not found')} return (<div>Got to Registration Page</div>)
+   }
+
 
   const handleSignOut = async () => {
     try {
@@ -14,10 +35,7 @@ const Account = () => {
   };
   
 
-useEffect(() => {
-  
-  localStorage.setItem('userName', JSON.stringify(user));
-}, [user]);
+
 
   return (
     <div className='w-[300px] m-auto'>

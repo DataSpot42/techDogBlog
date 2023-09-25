@@ -5,12 +5,14 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const itemRoutes = require('./routes/items')
+const userRoutes = require('./routes/users')
 const app = express()
 app.use(cors())
 app.use(express.json()) // parse incomming data
 // routes for requests will always now have '/todos'
 // eg http://localhost:4000/todos/items
 app.use('/blogs', itemRoutes)
+app.use('/users', userRoutes)
 
 
 mongoose.connect(process.env.MONGODB_URL)
