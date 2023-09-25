@@ -3,13 +3,8 @@ import Logo from './images/logo.png'
 import { RiLoginBoxFill } from 'react-icons/ri'
 import { TbListSearch } from 'react-icons/tb'
 import './navBar.css'
-
 import { UserAuth } from './AuthContext';
-
 import SearchBar from './Search.js'
-
-
-
 
 const Navbar = () => {
 
@@ -32,11 +27,14 @@ const Navbar = () => {
                         <div className='nav-btns'> 
                         <li className="SearchBar"><SearchBar /> </li>
                         </div>
+                        <Link to='/ShowAllBLogs'>Show Blogs</Link>
+                        <Link to='/CreateBlog'>CreateBlog</Link>
+                        <Link to='/RegPage'>Register</Link>
 
                         <div className='flex justify-between bg-gray-200 w-full p-4'>
-                            <h1 className='text-center text-2xl font-bold'>
-                                Firebase Google Auth & Context
-                            </h1>
+                            <h6 className='text-center text-2xl font-bold'>
+                                Firebase GoogleAuth
+                            </h6>
                             {user?.displayName ? (
                                 <button onClick={handleSignOut}>Logout</button>
                             ) : (
