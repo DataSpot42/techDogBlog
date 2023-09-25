@@ -1,7 +1,9 @@
 import { useEffect, useState, React } from "react";
 import { readBlogs } from "../api/readBlogs";
 import Card from '../components/Card'
-
+import {HiSearch} from 'react-icons/hi'
+import './showAllBlogs.css'
+import Cards from '../components/Card.js'
 const AllBlogs = () => {
     console.log("Welcome to the Blogs Page")
     const [user, setUser] = useState([]);
@@ -31,6 +33,19 @@ const AllBlogs = () => {
             <h1>Welcome {user.displayName}</h1>     {/* Show name from google Auth */}
             {blogs ? blogs.map((blogs,index) => <Card blog={blogs} />) : <p>Loading...</p> } 
         </div>    {/* Show all blogs */}
+
+        <div id="search-container">
+            <form id="SearchAllbg" method="get">
+                <label>
+                  { /* <button className="btn-allbg" type="submit" name="submit" className="submit" value="Search">submit</button> */}
+                <input Id="searchBar2" Name="search" type="text" className="search" placeholder="Search Our blogs..."></input>
+                
+                </label>
+            </form>
+        </div>
+<div className="all-bg-grid">
+    <div><Card /></div>
+</div>
         </>
     )
 }
