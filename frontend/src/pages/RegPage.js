@@ -62,6 +62,7 @@ const RegPage = () => {
             <form onSubmit={handleSubmit}>
             <label htmlFor="userName">User Name:</label>
             <input type="userName" id="userName" name="userName" value={formData.title} onChange={handleChange}/>
+            
             <p>Gender</p>
             <input type="radio" id="radio" name="gender" value="Male" onChange={handleChange}/>
             <label for="male">Male</label>
