@@ -3,7 +3,17 @@ import { UserAuth } from '../components/AuthContext';
 import { useState, useEffect } from "react"
 
 const Account = () => {
+  const [users,setUsers] = useState([])
   const { logOut, user } = UserAuth();
+  console.log(user)
+  useEffect(() => {
+    const fetchUsers = async () => {
+        let data = await readUsers() // read blogs from database   
+        setUsers(data)
+    }
+    fetchUsers()})
+   console.log(users) 
+
 
   const handleSignOut = async () => {
     try {
