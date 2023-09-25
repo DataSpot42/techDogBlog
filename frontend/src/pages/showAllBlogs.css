@@ -1,7 +1,6 @@
 
 .all-bg-grid {
     display: grid;
-    
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
     grid-column-gap: 10px;
@@ -34,7 +33,7 @@
     padding:8px 40px 8px 20px;
     border: none;
     background-color: #383836;
-    border:solid 3px #242424;
+    border: solid 3px #242424;
 }
 #searchBar2:focus{
     outline: none;
