@@ -54,6 +54,7 @@ const RegPage = () => {
             console.log(url)
             SetChosenAvator(url)
             setFormData((prevFormData) => ({ ...prevFormData, avatar: url }));
+            console.log(formData)
         }
 
 
@@ -63,7 +64,7 @@ const RegPage = () => {
             <p> Choose Your Avatar: <Avatar avatarHandler={avatarHandler}/> </p>
             <div className = "format">
                 <div className ="1">
-                    <img src = "../components/images/techreg.png" alt = "techreg"></img>
+                    <img src = {"../components/images/techdog.png"} alt = "techreg"></img>
                 </div>
                 <form onSubmit={handleSubmit}>
             <label htmlFor="userName">User Name:<p></p> </label>
