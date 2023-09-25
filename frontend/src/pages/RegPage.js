@@ -51,6 +51,10 @@ const RegPage = () => {
             
         };    
         const avatarHandler = (url) => {
+            function diffImage(img) {
+                if(img.src.match()) img.src = "../components/images/black.jpg";
+                else img.src = "blank.jpg";
+                }
             console.log(url)
             SetChosenAvator(url)
             setFormData((prevFormData) => ({ ...prevFormData, avatar: url }));
@@ -64,13 +68,12 @@ const RegPage = () => {
             <p> Choose Your Avatar: <Avatar avatarHandler={avatarHandler}/> </p>
             <div className = "format">
                 <div className ="1">
-                    <img src = {"../components/images/techdog.png"} alt = "techreg"></img>
+                    <img src = "../components/images/techreg.jpg" alt = "techreg"></img>
                 </div>
                 <form onSubmit={handleSubmit}>
             <label htmlFor="userName">User Name:<p></p> </label>
             
             <input type="userName" id="userName" name="userName" value={formData.title} onChange={handleChange}/>
-            
             <p>Gender</p>
             <input type="radio" id="radio" name="gender" value="Male" onChange={handleChange}/>
             <label for="male">Male</label>
@@ -98,7 +101,7 @@ const RegPage = () => {
             
         
            <p></p> 
-        <button type="submit">Submit</button>
+        <button className = "submit" type="submit">Submit</button>
         
           </form></div>
           </div>
