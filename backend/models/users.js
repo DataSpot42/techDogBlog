@@ -9,12 +9,12 @@ const userSchema = new Schema({
         type: String
     },
     userName: {
-        type: Number
+        type: String
     },
     realName: {
         type: String
     },
-    Avatar: {
+    avatar: {
         type: String
     },
     email: {
@@ -29,4 +29,4 @@ const userSchema = new Schema({
 }         
 )
 
-module.exports = mongoose.model('Users', userSchema)
+module.exports = mongoose.model('User', userSchema)

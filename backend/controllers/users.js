@@ -4,14 +4,14 @@ const createUser = async (req, res) => {
     const { userID } = req.body
     const { userName } = req.body
     const { realName } = req.body
-    const { Avatar } = req.body
+    const { avatar } = req.body
     const { email } = req.body
     const { gender } = req.body
     const { aboutme } = req.body
 
-    console.log(userID,userName,realName,Avatar,email,gender,aboutme)
+    console.log(userID,userName,realName,avatar,email,gender,aboutme)
     const userObj = new User({
-        userID, userName,realName,Avatar,email,gender,aboutme
+        userID, userName,realName,avatar,email,gender,aboutme
     })
     // await for it to be saved
     const newUser = await userObj.save()
