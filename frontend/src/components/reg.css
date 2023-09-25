@@ -1,0 +1,8 @@
+.regPage{
+    text-align: center;
+}
+.avatar:active{
+    width:70px;
+    height: 74px;
+    visibility:collapse;
+}
