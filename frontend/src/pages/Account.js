@@ -8,7 +8,7 @@ const Account = () => {
   const { logOut, user } = UserAuth();
   useEffect(() => {
   
-    localStorage.setItem('userName', JSON.stringify(user));
+    localStorage.setItem('googleUser', JSON.stringify(user));
   }, [user]);
   console.log(user.uid)
   useEffect(() => {
