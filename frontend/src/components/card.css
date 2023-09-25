@@ -3,7 +3,7 @@
     background-color: #3c404d;
     min-height: 350px;
     min-width: 250px;
- padding: 10px;
+ 
 }
 
 
@@ -13,7 +13,12 @@
     height: inherit !important;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
-    margin: px;
+  
+}
+.detail-box{
+    padding: 10px;
+    max-height: 130px;
+    overflow: hidden;
 }
 
 .subjectGroup{
@@ -24,9 +29,10 @@
     color: white;
     display:inline-block;
     padding: 2px 5px 5px;
-   
     background-color: orange;
     border-radius: 10px;
     font-size: 12px;
+    margin: 2px;
+    margin-left: 8px;
 }
 

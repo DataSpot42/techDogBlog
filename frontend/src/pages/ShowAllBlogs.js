@@ -30,11 +30,7 @@ const AllBlogs = () => {
     return (
         <>
         <div>               
-            <h1>Welcome {user.displayName}</h1>     {/* Show name from google Auth */}
-            {blogs ? blogs.map((blogs,index) => <Card blog={blogs} />) : <p>Loading...</p> } 
-        </div>    {/* Show all blogs */}
-
-        <div id="search-container">
+            <h1>Welcome {user.displayName}</h1> <div id="search-container">
             <form id="SearchAllbg" method="get">
                 <label>
                   { /* <button className="btn-allbg" type="submit" name="submit" className="submit" value="Search">submit</button> */}
@@ -42,7 +38,13 @@ const AllBlogs = () => {
                 
                 </label>
             </form>
-        </div>
+        </div>   
+        
+         {/* Show name from google Auth */}
+            {blogs ? blogs.map((blogs,index) => <Card blog={blogs} />) : <p>Loading...</p> } 
+        </div>    {/* Show all blogs */}
+
+        
 <div className="all-bg-grid">
     <div><Card /></div>
 </div>
