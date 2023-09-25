@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import './card.css'
+import Profile from './images/profile.png'
 const Card = ({blog}) => {
     console.log(blog)
     
@@ -8,7 +9,8 @@ const Card = ({blog}) => {
         <div className='card_item'>
             <div className="card_top">
                  <div> IMAGE{/*blog.image*/}</div>
-                 <div className="subjectGroup"></div> 
+
+                 <div className="subjectGroup">{/**/ }</div> 
                 
                 {/* <img className='card_img' src={blog.} alt="" /> */}
             </div>
@@ -20,7 +22,10 @@ const Card = ({blog}) => {
             
             </div>
             < div className="card-bottom">
-               
+               <div className="display-profile-card">
+            <img src={Profile}></img>
+               </div>
+               <div className="tags-cards"></div>
             </div>
             
         </div>
