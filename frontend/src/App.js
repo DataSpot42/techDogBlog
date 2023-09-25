@@ -8,9 +8,7 @@ import { AuthContextProvider } from './components/AuthContext';
 import Account from './pages/Account';
 import Signin from './pages/SignIn';
 import Avatar from './pages/Avatar';
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 import RegPage from './pages/RegPage'
 import AllBlogs from './pages/ShowAllBlogs'
 

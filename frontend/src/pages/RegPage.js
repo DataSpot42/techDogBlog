@@ -2,6 +2,7 @@ import Avatar from './Avatar.js'
 import { useState, useEffect } from "react"
 import { addBlog } from "../api/addBlog"
 import { useNavigate } from "react-router-dom"
+import '../components/reg.css'
 
 const RegPage = () => {
     const [chosenAvatar,SetChosenAvator] = useState("")
@@ -57,19 +58,25 @@ const RegPage = () => {
 
 
         return (
-            <div>
+            <div className = "regPage">
+                
             <p> Choose Your Avatar: <Avatar avatarHandler={avatarHandler}/> </p>
-            <form onSubmit={handleSubmit}>
-            <label htmlFor="userName">User Name:</label>
+            <div className = "format">
+                <div className ="1">
+                    <img src = "../components/images/techreg.png" alt = "techreg"></img>
+                </div>
+                <form onSubmit={handleSubmit}>
+            <label htmlFor="userName">User Name:<p></p> </label>
+            
             <input type="userName" id="userName" name="userName" value={formData.title} onChange={handleChange}/>
             <p>Gender</p>
             <input type="radio" id="radio" name="gender" value="Male" onChange={handleChange}/>
             <label for="male">Male</label>
             <input type="radio" id="radio" name="gender" value="Female" onChange={handleChange}/>
             <label for="female">Female</label>
-
-            <label>
-			Select an option:
+            <p></p>
+           {/* <label>
+			What group aligns with you most?:
 				<select  value={formData.group} onChange={handleDropdownChange}>
 				<option  value="Networking">Networking</option>
 				<option  value="Soft Dev">Soft Dev</option>
@@ -78,19 +85,20 @@ const RegPage = () => {
                 <option  value="Web Design">Web Design</option>
                 <option  value="Consumer Tech">Consumer Tech</option>
 			</select>
-		</label>
-		<p>Selected option: {selectedOption}</p>
-
+		</label>*/ }
+		
+            <p></p>
       
             <label htmlFor="aboutMe">About Me:</label>
+            <p></p>
             <textarea id="aboutMe" name="aboutMe" value={formData.aboutMe} onChange={handleChange}/>
       
             
         
-            
+           <p></p> 
         <button type="submit">Submit</button>
         
-          </form>
+          </form></div>
           </div>
         )
         
