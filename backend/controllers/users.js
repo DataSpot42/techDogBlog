@@ -9,6 +9,7 @@ const createUser = async (req, res) => {
     const { gender } = req.body
     const { aboutme } = req.body
 
+
     console.log(userID,userName,realName,avatar,email,gender,aboutme)
     const userObj = new User({
         userID, userName,realName,avatar,email,gender,aboutme

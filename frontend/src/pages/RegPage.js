@@ -70,6 +70,7 @@ const RegPage = () => {
             <label htmlFor="userName">User Name:<p></p> </label>
             
             <input type="userName" id="userName" name="userName" value={formData.title} onChange={handleChange}/>
+            
             <p>Gender</p>
             <input type="radio" id="radio" name="gender" value="Male" onChange={handleChange}/>
             <label for="male">Male</label>
