@@ -29,20 +29,21 @@ const Navbar = () => {
             <header>
                 <div className='nav-wrap'>
                     <ul className="nav">
+                        
                         <li><img className="logo" src={Logo} ></img> </li>
 
                         
-                        <Link to='/ShowAllBLogs'>Show Blogs</Link>
-                        <Link to='/CreateBlog'>CreateBlog</Link>
-                        <Link to='/RegPage'>Register</Link>
-
+                        <Link to='/ShowAllBLogs' className = "show"> Show Blogs</Link>
+                        <Link to='/CreateBlog' className = "create"> CreateBlog</Link>
+                        <Link to='/RegPage' className='reg'> Register</Link>
+                        
                         <div className='nav-btns'>
                         {/* view search bar */}
                         
                             {  searchTrue &&
                              <li className="SearchBar"><SearchBar /> </li>
 }
-                            <li onClick={search} className="button2 button"><TbListSearch /></li>
+                            <li onClick={search} className="button2"><TbListSearch /></li>
                           
   
                             {/* login */}
