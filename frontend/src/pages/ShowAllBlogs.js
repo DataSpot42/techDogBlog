@@ -28,9 +28,10 @@ const AllBlogs = () => {
     console.log(blogs)
     if (!blogs) return <h1>Loading</h1>
     return (
-        <>
-        <div>               
-            <h1>Welcome {user.displayName}</h1> <div id="search-container">
+      
+        <div className="cc">               
+            <h1>Welcome {user.displayName}</h1>
+             <div id="search-container">
                 {/* Show name from google Auth */}
             <form id="SearchAllbg" method="get">
                 <label>
@@ -41,18 +42,18 @@ const AllBlogs = () => {
             </form>
         </div>   
                
- <div className="grid-side-container">
-        <div className="grid-side"></div>
-        </div >
-        <div className="blogsContainer">
+ <div className="all-bg-grid">
+       
+        
+        
             {blogs ? blogs.map((blogs,index) =><div className="blogsFlex">
     <Card blog={blogs} />
    
 </div> ) : <p>Loading...</p> } 
-        </div>    {/* Show all blogs */}
-                </div>
- 
-        </>
+          {/* Show all blogs */}
+              </div > 
+  </div>
+       
     )
 }
 export default AllBlogs;
