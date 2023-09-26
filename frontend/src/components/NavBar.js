@@ -32,6 +32,7 @@ const Navbar = () => {
                         
                         <li><img className="logo" src={Logo} ></img> </li>
 
+<<<<<<< HEAD
                         
                         <Link to='/ShowAllBLogs' className = "show"> Show Blogs</Link>
                         <Link to='/CreateBlog' className = "create"> CreateBlog</Link>
@@ -47,12 +48,32 @@ const Navbar = () => {
                           
   
                             {/* login */}
+=======
+                        <div className='nav-btns'> 
+                        <li className="SearchBar"><SearchBar /> </li>
+                        </div>
+                        <Link to='/ShowAllBLogs'>Show Blogs</Link>
+                        <Link to='/CreateBlog'>CreateBlog</Link>
+                        <Link to='/RegPage'>Register</Link>
+
+                        <div className='flex justify-between bg-gray-200 w-full p-4'>
+                            <h6 className='text-center text-2xl font-bold'>
+                                Firebase GoogleAuth
+                            </h6>
+>>>>>>> upstream/main
                             {user?.displayName ? (
-                                <button className="button1 button " onClick={handleSignOut}><RiLoginBoxFill /></button>
+                                <button onClick={handleSignOut}>Logout</button>
                             ) : (
-                               <li className="button1 button"> <Link to='/signin'><RiLoginBoxFill /></Link></li>
+                                <Link to='/signin'>Sign in</Link>
                             )}
-                        </div>   
+                        </div>
+                        <div className='nav-btns'>
+
+                            <li className="button2 button">    <TbListSearch /></li>
+                            <li className="button1 button"> <RiLoginBoxFill />
+
+                            </li>
+                        </div>
                     </ul>
                 </div>
 
