@@ -1,20 +1,16 @@
 import { useState, useEffect } from "react"
 import { addBlog } from "../api/addBlog"
 import { useNavigate } from "react-router-dom"
+import { UserAuth } from '../components/AuthContext';
+
 
 
 import "../components/addblog.css"
 
 const CreateBlog = () => {
-
-    const [user, setUser] = useState([]);
-    useEffect(() => {
-      const items = JSON.parse(localStorage.getItem('userName'));
-      if (items) {
-       setUser(items);   // getting googleAuto data from local storage
-      }
-    }, []);
+    const { logOut, user } = UserAuth();
     console.log(user)
+    
     
     /* const [timeStamp, setTimeStamp] = useState();
     const [title, setTitle] = useState("");
@@ -45,6 +41,7 @@ const CreateBlog = () => {
           };
 
         const handleSubmit =  async (e) => {
+            console.log(formData)
             e.preventDefault();
             alert(`title: ${formData.title}, text: ${formData.text}, Group: ${selectedOption} Image:${formData.image}`);
             let timestamp = Date.now();
@@ -60,8 +57,6 @@ const CreateBlog = () => {
                 group: selectedOption
             }
             let response = await addBlog(blogObj)  
-
-
         };    
 
 
@@ -88,8 +83,8 @@ const CreateBlog = () => {
       
             <label htmlFor="text">Text:</label>
             <textarea id="text" name="text" value={formData.text} onChange={handleChange}/>
-            <label htmlFor="text">Add Image URL:</label>
-            <input id="text" name="text" value={formData.image} onChange={handleChange}/>
+            <label htmlFor="image">Add Image URL:</label>
+            <input id="image" name="image" value={formData.image} onChange={handleChange}/>
       
             <button type="submit">Submit</button>
           </form>
