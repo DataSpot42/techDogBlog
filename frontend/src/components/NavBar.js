@@ -14,6 +14,8 @@ import SearchBar from './Search.js'
 
 import { useState } from 'react'
 
+import { useNavigate } from 'react-router-dom'
+
  
 
  
@@ -21,7 +23,7 @@ import { useState } from 'react'
  
 
 const Navbar = () => {
-
+    const navigate = useNavigate();
  
 
     const { user, logOut } = UserAuth();
@@ -48,6 +50,9 @@ const Navbar = () => {
 
     };
 
+    const handlerHome = () => {
+        
+        navigate(`/`)}
    
 
     return (
@@ -60,7 +65,7 @@ const Navbar = () => {
 
                     <ul className="nav">
 
-                        <li><button onClick = "../pages/BlogHome.js"> <img className="logo" src={Logo} ></img> </button> </li>
+                        <li><button onClick = {()=> handlerHome()}> <img className="logo" src={Logo} ></img> </button> </li>
 
  
 
