@@ -6,7 +6,7 @@ import './navBar.css'
 import { UserAuth } from './AuthContext';
 import SearchBar from './Search.js'
 import { useState } from 'react'
-import { motion } from "framer-motion";
+
 
 
 const Navbar = () => {
