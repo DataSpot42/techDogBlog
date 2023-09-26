@@ -5,6 +5,9 @@ import { TbListSearch } from 'react-icons/tb'
 import './navBar.css'
 import { UserAuth } from './AuthContext';
 import SearchBar from './Search.js'
+import { useState } from 'react'
+import { motion } from "framer-motion";
+
 
 const Navbar = () => {
 
@@ -16,7 +19,11 @@ const Navbar = () => {
             console.log(error)
         }
     }
-
+    const [searchTrue, setSearchTrue] = useState(false);
+    const search = () => {
+      setSearchTrue(!searchTrue);
+    };
+    
     return (
         <div>
             <header>
@@ -24,30 +31,27 @@ const Navbar = () => {
                     <ul className="nav">
                         <li><img className="logo" src={Logo} ></img> </li>
 
-                        <div className='nav-btns'> 
-                        <li className="SearchBar"><SearchBar /> </li>
-                        </div>
+                        
                         <Link to='/ShowAllBLogs'>Show Blogs</Link>
                         <Link to='/CreateBlog'>CreateBlog</Link>
                         <Link to='/RegPage'>Register</Link>
 
-                        <div className='flex justify-between bg-gray-200 w-full p-4'>
-                            <h6 className='text-center text-2xl font-bold'>
-                                Firebase GoogleAuth
-                            </h6>
-                            {user?.displayName ? (
-                                <button onClick={handleSignOut}>Logout</button>
-                            ) : (
-                                <Link to='/signin'>Sign in</Link>
-                            )}
-                        </div>
                         <div className='nav-btns'>
-
-                            <li className="button2 button">    <TbListSearch /></li>
-                            <li className="button1 button"> <RiLoginBoxFill />
-
-                            </li>
-                        </div>
+                        {/* view search bar */}
+                        
+                            {  searchTrue &&
+                             <li className="SearchBar"><SearchBar /> </li>
+}
+                            <li onClick={search} className="button2 button"><TbListSearch /></li>
+                          
+  
+                            {/* login */}
+                            {user?.displayName ? (
+                                <button className="button1 button " onClick={handleSignOut}><RiLoginBoxFill /></button>
+                            ) : (
+                               <li className="button1 button"> <Link to='/signin'><RiLoginBoxFill /></Link></li>
+                            )}
+                        </div>   
                     </ul>
                 </div>
 
@@ -58,5 +62,6 @@ const Navbar = () => {
         </div>
     )
 }
+
 
 export default Navbar

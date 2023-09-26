@@ -9,6 +9,9 @@
 
 }
 
+a {
+  all: unset;
+}
 
 
 .nav{
