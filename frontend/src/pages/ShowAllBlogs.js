@@ -39,18 +39,18 @@ const AllBlogs = () => {
                 </label>
             </form>
         </div>   
-        
-         {/* Show name from google Auth */}
-            {blogs ? blogs.map((blogs,index) => <Card blog={blogs} />) : <p>Loading...</p> } 
-        </div>    {/* Show all blogs */}
-
-        
-<div className="all-bg-grid">
-    <Card />
-    <div className="grid-side-container">
+               
+ <div className="grid-side-container">
         <div className="grid-side"></div>
         </div>
-</div>
+         {/* Show name from google Auth */}
+            {blogs ? blogs.map((blogs,index) =><div className="all-bg-grid">
+    <Card blog={blogs} />
+   
+</div> ) : <p>Loading...</p> } 
+        </div>    {/* Show all blogs */}
+
+ 
         </>
     )
 }
