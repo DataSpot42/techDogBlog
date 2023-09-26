@@ -8,6 +8,14 @@ const RegPage = () => {
     const [chosenAvatar,SetChosenAvator] = useState("")
     const [gender,SetGender] = useState("")
     const [user, setUser] = useState([]);
+    const [googleUser, setGoogleUser] = useState([]);
+    useEffect(() => {
+        const items = JSON.parse(localStorage.getItem('googleUser'));
+        if (items) {
+         setGoogleUser(items);   // getting googleAuto data from local storage
+        }
+      }, []);
+      console.log(googleUser)
     const [formData, setFormData] = useState(
         {userName: "",aboutMe: "",group: "", gender: "", realName: "", email: "", userID: ""});
     const [selectedOption, setSelectedOption] = useState("Select");
@@ -51,13 +59,9 @@ const RegPage = () => {
             
         };    
         const avatarHandler = (url) => {
-            function diffImage(img) {
-                if(img.src.match()) img.src = "../components/images/black.jpg";
-                else img.src = "blank.jpg";
-                }
             console.log(url)
             SetChosenAvator(url)
-            setFormData((prevFormData) => ({ ...prevFormData, avatar: url }));
+            setFormData((prevFormData) => ({ ...prevFormData, avatar: url, userID: user.uid }));
             console.log(formData)
         }
 
@@ -68,12 +72,13 @@ const RegPage = () => {
             <p> Choose Your Avatar: <Avatar avatarHandler={avatarHandler}/> </p>
             <div className = "format">
                 <div className ="1">
-                    <img src = "../components/images/techreg.jpg" alt = "techreg"></img>
+                    <img src = {"../components/images/techdog.png"} alt = "techreg"></img>
                 </div>
                 <form onSubmit={handleSubmit}>
             <label htmlFor="userName">User Name:<p></p> </label>
             
             <input type="userName" id="userName" name="userName" value={formData.title} onChange={handleChange}/>
+            
             <p>Gender</p>
             <input type="radio" id="radio" name="gender" value="Male" onChange={handleChange}/>
             <label for="male">Male</label>
@@ -101,7 +106,7 @@ const RegPage = () => {
             
         
            <p></p> 
-        <button className = "submit" type="submit">Submit</button>
+        <button type="submit">Submit</button>
         
           </form></div>
           </div>
