@@ -32,14 +32,34 @@ const AllBlogs = () => {
             let userData = await readUsers()  //read users from database
             setUsers(userData)
         }
-
-
         fetchBlogs()
         fetchUsers()
     }, [])   
-    
+    let aUserName = ""
+    let aUserAvatar =""
     console.log(blogs)
     console.log(users)
+    for (let p=0; p<blogs.length; p++){
+        for (let q=0; q<users.user.length;q++) {
+            if (blogs[p].userID === users.user[q].userID) {
+                
+                console.log(aUserName, aUserAvatar)
+                Object.assign(blogs[p],{userName: users.user[q].userName}, {avatar: users.user[q].avatar})
+
+                /* console.log(blogs[p].userID)
+                console.log(users.user[q].userID) */
+                
+                
+                /* blogs[p].push(aUserName)
+                /* blogs[p].push(users.user[q].avatar) */
+                /* console.log(`I have a match!`)
+                console.log(blogs[p]) */
+ 
+            }
+        }
+    }
+
+
     if (!blogs) return <h1>Loading</h1>
     return (
       

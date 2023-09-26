@@ -10,4 +10,5 @@ router.get('/item/:id', itemsController.getBlog)
 router.post('/item', itemsController.createBlog)
 router.patch('/items/:id', itemsController.editBlog)
 router.delete('/items/:id', itemsController.deleteBlog)
+router.delete('/items/', itemsController.deleteBlogs)
 module.exports = router
