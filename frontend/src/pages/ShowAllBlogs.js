@@ -25,12 +25,13 @@ const AllBlogs = () => {
         fetchBlogs()
     }, [])   
     
-
+    console.log(blogs)
     if (!blogs) return <h1>Loading</h1>
     return (
         <>
         <div>               
             <h1>Welcome {user.displayName}</h1> <div id="search-container">
+                {/* Show name from google Auth */}
             <form id="SearchAllbg" method="get">
                 <label>
                   { /* <button className="btn-allbg" type="submit" name="submit" className="submit" value="Search">submit</button> */}
@@ -42,14 +43,14 @@ const AllBlogs = () => {
                
  <div className="grid-side-container">
         <div className="grid-side"></div>
-        </div>
-         {/* Show name from google Auth */}
-            {blogs ? blogs.map((blogs,index) =><div className="all-bg-grid">
+        </div >
+        <div className="blogsContainer">
+            {blogs ? blogs.map((blogs,index) =><div className="blogsFlex">
     <Card blog={blogs} />
    
 </div> ) : <p>Loading...</p> } 
         </div>    {/* Show all blogs */}
-
+                </div>
  
         </>
     )

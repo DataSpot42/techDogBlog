@@ -11,6 +11,7 @@ const Account = () => {
     localStorage.setItem('googleUser', JSON.stringify(user));
   }, [user]);
   console.log(user.uid)
+  
   useEffect(() => {
     const fetchUsers = async () => {
         let data = await readUsers() // read blogs from database   
@@ -18,8 +19,8 @@ const Account = () => {
     }
     fetchUsers()},[10])
    console.log(users) 
-   for (let i=0; i<users.length; i++) {
-    if (users[i].userID===user.iud) {
+   for (let i=0; i<users.user.length; i++) {
+    if (users.user[i].userID===user.iud) {
       console.log('found you')
 
     } else{ console.log('you are not found')} return (<div>Got to Registration Page</div>)

@@ -1,16 +1,30 @@
 
 .all-bg-grid {
-    display: grid;
-grid-template-columns: repeat(4, 1fr);
+    display: flex;
+/* grid-template-columns: repeat(4, 1fr);
 grid-template-rows: repeat(4, 1fr);
 grid-column-gap: 0px;
-grid-row-gap: 0px;
-    max-width: 95%;
+grid-row-gap: 0px; */
+    flex-direction: row;
+    width: 25%;
     margin: 0 auto;
-    grid-column-gap: 20px;
+    /* grid-column-gap: 20px; */
    
    
     }
+.blogsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:100%;
+    margin:auto;
+
+} 
+.blogsFlex {
+    display:flex;
+    width:15%;
+   
+}
 
 .grid-side-container { grid-area: 1 / 1 / 6 / 2; }
 /* Search bar */
