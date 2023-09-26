@@ -10,7 +10,7 @@ export const addUser = async (user) => {
         avatar: user.avatar,
         email: user.email,
         gender: user.gender,
-        aboutme: user.aboutme
+        aboutMe: user.aboutMe
         }
     console.log(obj)
     const response = await fetch(`${API_URL}/users/user`,{
