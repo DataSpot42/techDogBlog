@@ -36,9 +36,8 @@ input{
     
 }
 #radio{
-    height: 15px;
-    width: 200px;
-
+    width: 30px;
+    height: 15px
 }
 
 textarea{
