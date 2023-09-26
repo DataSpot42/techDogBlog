@@ -65,13 +65,13 @@ const RegPage = () => {
         return (
             <div className = "regPage">
                 
-            <p> Choose Your Avatar: <Avatar avatarHandler={avatarHandler}/> </p>
+            <p className = "Avatar" > Choose Your Avatar <Avatar avatarHandler={avatarHandler}/> </p>
             <div className = "format">
                 <div className ="1">
                     <img src = "../components/images/techreg.jpg" alt = "techreg"></img>
                 </div>
                 <form onSubmit={handleSubmit}>
-            <label htmlFor="userName">User Name:<p></p> </label>
+            <label htmlFor="userName">User Name<p></p> </label>
             
             <input type="userName" id="userName" name="userName" value={formData.title} onChange={handleChange}/>
             <p>Gender</p>
@@ -94,16 +94,17 @@ const RegPage = () => {
 		
             <p></p>
       
-            <label htmlFor="aboutMe">About Me:</label>
+            <label htmlFor="aboutMe">About Me</label>
             <p></p>
             <textarea id="aboutMe" name="aboutMe" value={formData.aboutMe} onChange={handleChange}/>
       
             
         
            <p></p> 
-        <button className = "submit" type="submit">Submit</button>
+        <button className = "submit" type="submit" href= 'https://www.epicurrence.com/' target= "blank">Submit</button>
         
           </form></div>
+          
           </div>
         )
         
