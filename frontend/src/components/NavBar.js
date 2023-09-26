@@ -29,19 +29,25 @@ const Navbar = () => {
             <header>
                 <div className='nav-wrap'>
                     <ul className="nav">
+                        
                         <li><img className="logo" src={Logo} ></img> </li>
 
-                        <div className='nav-btns'> 
-                        <li className="SearchBar"><SearchBar /> </li>
-                        </div>
-                        <Link to='/ShowAllBLogs'>Show Blogs</Link>
-                        <Link to='/CreateBlog'>CreateBlog</Link>
-                        <Link to='/RegPage'>Register</Link>
+                        
+                        <Link to='/ShowAllBLogs' className = "show"> Show Blogs</Link>
+                        <Link to='/CreateBlog' className = "create"> CreateBlog</Link>
+                        <Link to='/RegPage' className='reg'> Register</Link>
+                        
+                        <div className='nav-btns'>
+                        {/* view search bar */}
+                        
+                            {  searchTrue &&
+                             <li className="SearchBar"><SearchBar /> </li>
+}
+                            <li onClick={search} className="button2"><TbListSearch /></li>
+                          
+  
+                            {/* login */}
 
-                        <div className='flex justify-between bg-gray-200 w-full p-4'>
-                            <h6 className='text-center text-2xl font-bold'>
-                                Firebase GoogleAuth
-                            </h6>
                             {user?.displayName ? (
                                 <button onClick={handleSignOut}>Logout</button>
                             ) : (
