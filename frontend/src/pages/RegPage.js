@@ -1,27 +1,35 @@
 import Avatar from './Avatar.js'
 import { useState, useEffect } from "react"
 import { addBlog } from "../api/addBlog"
+import { UserAuth } from '../components/AuthContext';
 import { useNavigate } from "react-router-dom"
 import '../components/reg.css'
+import { readUsers } from '../api/readUsers.js';
+import { NewUser } from '../components/newUser.js';
+import { UpdateUser } from '../components/updateUser.js';
+import { addUser } from '../api/addUser.js';
+import { editUser } from '../api/editUser.js'
 
 const RegPage = () => {
+    const [users,setUsers] = useState([])
+    const { logOut, user } = UserAuth();
+    console.log(user)
     const [chosenAvatar,SetChosenAvator] = useState("")
     const [gender,SetGender] = useState("")
-    const [user, setUser] = useState([]);
+    let found = false
+    /* const [user, setUser] = useState([]); */
     const [formData, setFormData] = useState(
         {userName: "",aboutMe: "", gender: "", realName: "", email: "", userID: ""});
     const [selectedOption, setSelectedOption] = useState("Select");
 
     useEffect(() => {
-        const items = JSON.parse(localStorage.getItem('googleUser'));
+        /* const items = JSON.parse(localStorage.getItem('googleUser'));
         if (items) {
          setUser(items);
-         console.log(user)
+         console.log(user) */
          
-         setFormData((prevFormData) => 
-         ({ ...prevFormData, realName: user.displayName, email: user.email, userID: user.uid }));
-         console.log(formData)
-        }
+        
+        
       }, []);
 
     console.log(formData)
@@ -42,13 +50,33 @@ const RegPage = () => {
             setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
             
           };
-
+        
         
         const handleSubmit =  async (e) => {
             e.preventDefault();
+            setFormData((prevFormData) => 
+            ({ ...prevFormData, realName: user.displayName, email: user.email, userID: user.uid }));
             console.log(formData)
+            let myID=""
             
-            alert(`title: ${formData.userName}, text: ${formData.aboutMe}, Group: ${formData.group}, Gender ${formData.gender} Avatar: ${formData.avatar}`);
+            let data = await readUsers() // read blogs from database   
+            setUsers(data)              
+                
+            console.log(users)
+            for (let i=0; i<users.user.length; i++){
+                if (users.user[i].userID === user.uid) {
+                    found = true
+                    myID = users.user[i]._id
+                } else {
+                    found = false
+                
+                }
+            }
+            found ? editUser(formData, myID) : addUser(formData)
+            
+            
+            alert(`title: ${formData.userName}, text: ${formData.aboutMe}, Group: ${formData.group}, 
+            Gender ${formData.gender} Avatar: ${formData.avatar}` );
             
         };    
         const avatarHandler = (url) => {
