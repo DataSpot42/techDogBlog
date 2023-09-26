@@ -46,12 +46,12 @@ const CreateBlog = () => {
 
         const handleSubmit =  async (e) => {
             e.preventDefault();
-            alert(`title: ${formData.title}, text: ${formData.text}, Group: ${selectedOption}`);
+            alert(`title: ${formData.title}, text: ${formData.text}, Group: ${selectedOption} Image:${formData.image}`);
             let timestamp = Date.now();
             let blogObj = { 
                 userID: user.uid,
                 blogID: 456,
-                image: "imagehere",
+                image: formData.image,
                 
                 likes: 0,
                 title: formData.title,
@@ -86,8 +86,10 @@ const CreateBlog = () => {
 		<p>Selected option: {selectedOption}</p>
 
       
-            <label htmlFor="image">Text:</label>
+            <label htmlFor="text">Text:</label>
             <textarea id="text" name="text" value={formData.text} onChange={handleChange}/>
+            <label htmlFor="text">Add Image URL:</label>
+            <input id="text" name="text" value={formData.image} onChange={handleChange}/>
       
             <button type="submit">Submit</button>
           </form>
