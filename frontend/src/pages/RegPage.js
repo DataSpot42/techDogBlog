@@ -11,7 +11,7 @@ import { addUser } from '../api/addUser.js';
 import { editUser } from '../api/editUser.js'
 
 const RegPage = () => {
-    const [users,setUsers] = useState([])
+    const [users,setUsers] = useState()
     const { logOut, user } = UserAuth();
     console.log(user)
     const [chosenAvatar,SetChosenAvator] = useState("")
@@ -22,7 +22,7 @@ const RegPage = () => {
         {userName: "",aboutMe: "", gender: "", realName: "", email: "", userID: ""});
     const [selectedOption, setSelectedOption] = useState("Select");
 
-    useEffect(() => {
+    /* useEffect(() => { */
         /* const items = JSON.parse(localStorage.getItem('googleUser'));
         if (items) {
          setUser(items);
@@ -30,7 +30,14 @@ const RegPage = () => {
          
         
         
-      }, []);
+     /*  }, []); */
+
+    useEffect(() => {
+        const fetchData = async() => {
+            let data = await readUsers(); // read blogs from database   
+            setUsers(data);}  
+        fetchData()                
+    },[])
 
     console.log(formData)
     
@@ -59,10 +66,13 @@ const RegPage = () => {
             console.log(formData)
             let myID=""
             
-            let data = await readUsers() // read blogs from database   
-            setUsers(data)              
+            /* let data = await readUsers() // read blogs from database   
+            setUsers(data)               */
                 
             console.log(users)
+            if (users){
+            console.log(users)    
+            
             for (let i=0; i<users.user.length; i++){
                 if (users.user[i].userID === user.uid) {
                     found = true
@@ -73,7 +83,7 @@ const RegPage = () => {
                 }
             }
             found ? editUser(formData, myID) : addUser(formData)
-            
+        }
             
             alert(`title: ${formData.userName}, text: ${formData.aboutMe}, Group: ${formData.group}, 
             Gender ${formData.gender} Avatar: ${formData.avatar}` );
