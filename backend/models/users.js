@@ -23,7 +23,7 @@ const userSchema = new Schema({
     gender: {
         type: String
     },
-    aboutme: [{
+    aboutMe: [{
         type: String   
     }],          
 }         
