@@ -47,12 +47,20 @@ const Navbar = () => {
                           
   
                             {/* login */}
+
                             {user?.displayName ? (
-                                <button className="button1 button " onClick={handleSignOut}><RiLoginBoxFill /></button>
+                                <button onClick={handleSignOut}>Logout</button>
                             ) : (
-                               <li className="button1 button"> <Link to='/signin'><RiLoginBoxFill /></Link></li>
+                                <Link to='/signin'>Sign in</Link>
                             )}
-                        </div>   
+                        </div>
+                        <div className='nav-btns'>
+
+                            <li className="button2 button">    <TbListSearch /></li>
+                            <li className="button1 button"> <RiLoginBoxFill />
+
+                            </li>
+                        </div>
                     </ul>
                 </div>
 
