@@ -11,9 +11,9 @@
 
 body{background-color: var(--background);
 }
+
 li{
     list-style: none;
-   
   display: inline-block;
 }
 img{
@@ -37,22 +37,19 @@ img{
 
 .titleH{
   margin-top: 25px;
-
-  text-wrap: balance
-   
+  text-wrap: balance;
 }
 .titleH > p {
     padding: 5px 10px; background-color: black;
     letter-spacing: 5px;
     font-size: 50px;
     color: white;
-    font-family:Arial, Helvetica, sans-serif;
-    
+    font-family:Arial, Helvetica, sans-serif;  
 }
 
 
 
-/* nav */
+
 
 
 
