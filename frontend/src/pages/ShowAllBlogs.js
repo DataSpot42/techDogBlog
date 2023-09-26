@@ -1,18 +1,24 @@
 import { useEffect, useState, React } from "react";
+import { UserAuth } from '../components/AuthContext';
 import { readBlogs } from "../api/readBlogs";
+
 import Card from '../components/Card'
 import {HiSearch} from 'react-icons/hi'
 import './showAllBlogs.css'
 import Cards from '../components/Card.js'
+import { readUsers } from "../api/readUsers";
+
+
 const AllBlogs = () => {
-    console.log("Welcome to the Blogs Page")
-    const [user, setUser] = useState([]);
-    useEffect(() => {
+    const { logOut, user } = UserAuth();
+    console.log("Welcome to the Blogs Page")    
+    const [users, setUsers] = useState([]);
+    /* useEffect(() => {
       const items = JSON.parse(localStorage.getItem('userName'));
       if (items) {
        setUser(items);   // getting googleAuto data from local storage
       }
-    }, []);
+    }, []); */
     console.log(user)
 
     const [blogs,setBlogs] = useState([])
@@ -22,10 +28,18 @@ const AllBlogs = () => {
             let data = await readBlogs() // read blogs from database   
             setBlogs(data.blog)
         }
+        const fetchUsers = async () => {
+            let userData = await readUsers()  //read users from database
+            setUsers(userData)
+        }
+
+
         fetchBlogs()
+        fetchUsers()
     }, [])   
     
     console.log(blogs)
+    console.log(users)
     if (!blogs) return <h1>Loading</h1>
     return (
       
