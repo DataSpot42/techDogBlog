@@ -22,7 +22,7 @@ const CreateBlog = () => {
     const [comments, setComments] = useState([]); */
 
     const [formData, setFormData] = useState({title: "",text: "",group: ""});
-    const [selectedOption, setSelectedOption] = useState("option1");
+    const [selectedOption, setSelectedOption] = useState("Networking");
     
 
 	const  handleDropdownChange = (event) => {

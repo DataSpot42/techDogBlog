@@ -11,9 +11,9 @@ const Card = ({blog}) => {
     return (
         <div className='card_item'>
             <div className="card_top">
-                 <div className="card-img-top"> <img src={Networking} ></img>{/*blog.image*/}</div>
+                 <div className="card-img-top"> <img src={blog.image} alt="BlogImage" height="100" width="auto" ></img>{/*blog.image*/}</div>
 
-                 <div className="subjectGroup"><p>Networking</p>{/**/}</div> 
+                 <div className="subjectGroup"><p>{blog.group}</p>{/**/}</div> 
                 
                 {/* <img className='card_img' src={blog.} alt="" /> */}
             </div>
@@ -28,9 +28,9 @@ const Card = ({blog}) => {
                 
 
                <div className="display-profile-card">
-            <img src={Profile}></img>
+            <img src={blog.avatar}></img>
 
-            <div className="useInfo"> Joe Blogs </div>
+            <div className="useInfo">{blog.userName}</div>
             </div>
               
 
