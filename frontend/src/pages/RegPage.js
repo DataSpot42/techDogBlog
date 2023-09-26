@@ -9,13 +9,14 @@ const RegPage = () => {
     const [gender,SetGender] = useState("")
     const [user, setUser] = useState([]);
     const [formData, setFormData] = useState(
-        {userName: "",aboutMe: "",group: "", gender: "", realName: "", email: "", userID: ""});
+        {userName: "",aboutMe: "", gender: "", realName: "", email: "", userID: ""});
     const [selectedOption, setSelectedOption] = useState("Select");
 
     useEffect(() => {
-        const items = JSON.parse(localStorage.getItem('userName'));
+        const items = JSON.parse(localStorage.getItem('googleUser'));
         if (items) {
          setUser(items);
+         console.log(user)
          
          setFormData((prevFormData) => 
          ({ ...prevFormData, realName: user.displayName, email: user.email, userID: user.uid }));

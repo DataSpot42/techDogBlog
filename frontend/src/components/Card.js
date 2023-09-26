@@ -13,14 +13,14 @@ const Card = ({blog}) => {
             <div className="card_top">
                  <div className="card-img-top"> <img src={Networking} ></img>{/*blog.image*/}</div>
 
-                 <div className="subjectGroup"><p>Networking</p>{/**/ }</div> 
+                 <div className="subjectGroup"><p>Networking</p>{/**/}</div> 
                 
                 {/* <img className='card_img' src={blog.} alt="" /> */}
             </div>
 
             <div className="detail-box">
-                <h1>Title: {/*blog.title*/}</h1>
-            <div className="cardText">TEXT: So the problem is I have a jquery gallery in the top of the content body, but I don't want the gallery to have the padding around it, I mean, the white body. I want the gallery to start at the border of the body and end at the other end. {/*blog.text*/}</div>
+                <h1>{blog.title}</h1>
+            <div className="cardText">{blog.text}</div>
            
             
             </div>
