@@ -31,7 +31,14 @@ input{
     background-color:#575656 ;
     color: #6BB4FD;
     border-radius: 30px;
-    width: 200px
+    width: 200px;
+    height: 25px;
+    text-align: center;
+    
+}
+#radio{
+    width: 30px;
+    height: 15px
 }
 
 textarea{
@@ -52,7 +59,7 @@ textarea{
   transform: translate3d(0px, 0%, 0px);
   text-decoration: none;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: .05em;
   transition-delay: .6s;
   overflow: hidden;
