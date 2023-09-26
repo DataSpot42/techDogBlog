@@ -1,7 +1,12 @@
 import './homePage.css'
+import { useNavigate } from 'react-router-dom'
 
 function HomePage() {
   console.log()
+  const navigate = useNavigate();
+  const handlerLogin = () => {
+        
+    navigate(`/signin`)}
 
   return (
     <div className='container'>
@@ -12,7 +17,7 @@ function HomePage() {
         <div className='titleH'><p>WELCOME TO TECHDOG</p> </div>
 
         <div className='btn-block'>
- <button className='login-btn'>Login</button>
+ <button onClick = {()=> handlerLogin()} className='login-btn'>Login</button>
  </div>
       </div>
      
