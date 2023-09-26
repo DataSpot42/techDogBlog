@@ -5,11 +5,12 @@ import { readUsers } from '../api/readUsers';
 
 const Account = () => {
   const [users,setUsers] = useState([])
+ /*  const [user,setUser] = useState([]) */
   const { logOut, user } = UserAuth();
-  useEffect(() => {
-  
-    localStorage.setItem('googleUser', JSON.stringify(user));
-  }, [user]);
+  console.log(user)
+  /* useEffect(() => {  
+    localStorage.setItem('userName', JSON.stringify(user));
+  }, [user]); */
   console.log(user.uid)
   
   useEffect(() => {
@@ -19,13 +20,32 @@ const Account = () => {
     }
     fetchUsers()},[10])
    console.log(users) 
+   /* const handleRegistration = () => {
+      console.log(user)
+      users? handleRegistrationp2() :{}
+
+   }  
+   const handleRegistrationp2 = () => {
+    console.log(users)
+   } */
+    
+      /* for (let i=0; i<users.user.length; i++) {
+       if (users.user[i].userID===user.iud) {
+         console.log('found you')
+   
+       } else{ console.log('you are not found')} return (<div>Got to Registration Page</div>)
+      } */
+     
+
+   
+   /* if (typeof user!='undefined' && typeof users!='undefined'){
    for (let i=0; i<users.user.length; i++) {
     if (users.user[i].userID===user.iud) {
       console.log('found you')
 
     } else{ console.log('you are not found')} return (<div>Got to Registration Page</div>)
    }
-
+  } */
 
   const handleSignOut = async () => {
     try {
@@ -42,7 +62,7 @@ const Account = () => {
     <div className='w-[300px] m-auto'>
       <h1 className='text-center text-2xl font-bold pt-12'>Account</h1>
       <div>
-        <p>Welcome, {user?.displayName}</p>
+        <p>Welcome, {user?.displayName}</p>{/* {user? handleRegistration():{} */}
       </div>
       <button onClick={handleSignOut} className='border py-2 px-5 mt-10'>
         Logout
