@@ -11,6 +11,7 @@ import Avatar from './pages/Avatar';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RegPage from './pages/RegPage'
 import AllBlogs from './pages/ShowAllBlogs'
+import ShowMyBlogs from './pages/ShowMyBlogs';
 
 const App = () => {
   return (
@@ -46,6 +47,10 @@ const App = () => {
           <Route 
             path ='/ShowAllBLogs'
             element = {<AllBlogs />}
+          />
+          <Route 
+            path ='/ShowMyBlogs'
+            element = {<ShowMyBlogs />}
           />
           <Route path='/signin' element={<Signin />} />
           <Route

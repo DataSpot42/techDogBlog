@@ -73,6 +73,8 @@ const Navbar = () => {
 
                         <Link to='/ShowAllBLogs' className = "show">Show Blogs</Link>
 
+                        <Link to='/ShowMyBlogs' className = "show">My Blogs</Link>
+
                         <Link to='/CreateBlog' className = "create">CreateBlog</Link>
 
                         <Link to='/RegPage' className = "reg">Register</Link>
