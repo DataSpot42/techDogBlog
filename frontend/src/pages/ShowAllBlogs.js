@@ -1,7 +1,7 @@
 import { useEffect, useState, React } from "react";
 import { UserAuth } from '../components/AuthContext';
 import { readBlogs } from "../api/readBlogs";
-import React from "react";
+
 import Card from '../components/Card'
 import {HiSearch} from 'react-icons/hi'
 import './showAllBlogs.css'
@@ -22,10 +22,36 @@ const AllBlogs = () => {
     }, []); */
     console.log(user)
     const [searchTerm, setSearchTerm] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
     const handleChangeSearch = event => {
       setSearchTerm(event.target.value);
-      console.log(searchTerm)
+      
     };
+
+    useEffect(() => {
+        
+        const fetchBlogs = async () => {
+            let data = await readBlogs() // read blogs from database   
+            setBlogs(data.blog.group)
+        }
+        const fetchUsers = async () => {
+            let userData = await readUsers()  //read users from database
+            setUsers(userData)
+        }
+        fetchBlogs()
+        fetchUsers()
+        
+        const filterBlogs = async ()  => {
+            const results =  blogs.includes(searchTerm)
+         setSearchResults(results);
+        }
+        
+        filterBlogs()
+
+
+        
+      }, [searchTerm]);
+
     const [blogs,setBlogs] = useState([])
     let data=99
     useEffect(() => {
