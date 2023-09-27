@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { addBlog } from "../api/addBlog"
 import { useNavigate } from "react-router-dom"
 import { UserAuth } from '../components/AuthContext';
+import Tags from "../components/Tags";
 
 
 
@@ -9,6 +10,7 @@ import "../components/addblog.css"
 
 const CreateBlog = () => {
     const { logOut, user } = UserAuth();
+    const [inputValue, setInputValue] = useState('');
     console.log(user)
     
     
@@ -42,7 +44,12 @@ const CreateBlog = () => {
 
         const handleSubmit =  async (e) => {
             console.log(formData)
+            console.log(inputValue)
             e.preventDefault();
+            
+        };   
+        const handleSave = async () => {
+            console.log(`Saved`)
             alert(`title: ${formData.title}, text: ${formData.text}, Group: ${selectedOption} Image:${formData.image}`);
             let timestamp = Date.now();
             let blogObj = { 
@@ -57,10 +64,11 @@ const CreateBlog = () => {
                 group: selectedOption
             }
             let response = await addBlog(blogObj)  
-        };    
+        } 
 
 
         return (
+            <div>
             <form onSubmit={handleSubmit}>
             <label htmlFor="title">Title:</label>
             <input type="title" id="title" name="title" value={formData.title} onChange={handleChange}/>
@@ -85,9 +93,12 @@ const CreateBlog = () => {
             <textarea id="text" name="text" value={formData.text} onChange={handleChange}/>
             <label htmlFor="image">Add Image URL:</label>
             <input id="image" name="image" value={formData.image} onChange={handleChange}/>
-      
-            <button type="submit">Submit</button>
+            <Tags onChange={(event) => setInputValue(event.target.value)}/>
+            
           </form>
+          <button onClick={()=>handleSave()}>Save</button>
+          </div>
+
         )
     }
     export default CreateBlog
