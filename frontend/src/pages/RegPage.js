@@ -9,6 +9,7 @@ import { NewUser } from '../components/newUser.js';
 import { UpdateUser } from '../components/updateUser.js';
 import { addUser } from '../api/addUser.js';
 import { editUser } from '../api/editUser.js'
+import logo1 from '../components/images/techreg.png'
 
 const RegPage = () => {
     const [users,setUsers] = useState()
@@ -107,7 +108,7 @@ const RegPage = () => {
             <p className = "Avatar" > Choose Your Avatar <Avatar avatarHandler={avatarHandler}/> </p>
             <div className = "format">
                 <div className ="1">
-                    <img src = "../components/images/techreg.jpg" alt = "techreg"></img>
+                    <img src = {logo1} alt = "techreg"></img>
                 </div>
                 <form onSubmit={handleSubmit}>
             <label htmlFor="userName">User Name<p></p> </label>

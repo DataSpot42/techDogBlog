@@ -1,20 +1,18 @@
 import { useState, useEffect } from "react"
 import { addBlog } from "../api/addBlog"
 import { useNavigate } from "react-router-dom"
+import { UserAuth } from '../components/AuthContext';
+import Tags from "../components/Tags";
+
 
 
 import "../components/addblog.css"
 
 const CreateBlog = () => {
-
-    const [user, setUser] = useState([]);
-    useEffect(() => {
-      const items = JSON.parse(localStorage.getItem('userName'));
-      if (items) {
-       setUser(items);   // getting googleAuto data from local storage
-      }
-    }, []);
+    const { logOut, user } = UserAuth();
+    const [inputValue, setInputValue] = useState('');
     console.log(user)
+    
     
     /* const [timeStamp, setTimeStamp] = useState();
     const [title, setTitle] = useState("");
@@ -26,7 +24,7 @@ const CreateBlog = () => {
     const [comments, setComments] = useState([]); */
 
     const [formData, setFormData] = useState({title: "",text: "",group: ""});
-    const [selectedOption, setSelectedOption] = useState("option1");
+    const [selectedOption, setSelectedOption] = useState("Networking");
     
 
 	const  handleDropdownChange = (event) => {
@@ -45,7 +43,13 @@ const CreateBlog = () => {
           };
 
         const handleSubmit =  async (e) => {
+            console.log(formData)
+            console.log(inputValue)
             e.preventDefault();
+            
+        };   
+        const handleSave = async () => {
+            console.log(`Saved`)
             alert(`title: ${formData.title}, text: ${formData.text}, Group: ${selectedOption} Image:${formData.image}`);
             let timestamp = Date.now();
             let blogObj = { 
@@ -60,12 +64,11 @@ const CreateBlog = () => {
                 group: selectedOption
             }
             let response = await addBlog(blogObj)  
-
-
-        };    
+        } 
 
 
         return (
+            <div>
             <form onSubmit={handleSubmit}>
             <label htmlFor="title">Title:</label>
             <input type="title" id="title" name="title" value={formData.title} onChange={handleChange}/>
@@ -88,11 +91,14 @@ const CreateBlog = () => {
       
             <label htmlFor="text">Text:</label>
             <textarea id="text" name="text" value={formData.text} onChange={handleChange}/>
-            <label htmlFor="text">Add Image URL:</label>
-            <input id="text" name="text" value={formData.image} onChange={handleChange}/>
-      
-            <button type="submit">Submit</button>
+            <label htmlFor="image">Add Image URL:</label>
+            <input id="image" name="image" value={formData.image} onChange={handleChange}/>
+            <Tags onChange={(event) => setInputValue(event.target.value)}/>
+            
           </form>
+          <button onClick={()=>handleSave()}>Save</button>
+          </div>
+
         )
     }
     export default CreateBlog
