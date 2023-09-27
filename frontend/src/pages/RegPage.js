@@ -108,8 +108,9 @@ const RegPage = () => {
             <p className = "Avatar" > Choose Your Avatar <Avatar avatarHandler={avatarHandler}/> </p>
             <div className = "format">
                 <div className ="1">
-                    <img src = {logo1} alt = "techreg"></img>
+                    <img className = "dog" src = {logo1} alt = "techreg"></img>
                 </div>
+                
                 <form onSubmit={handleSubmit}>
             <label htmlFor="userName">User Name<p></p> </label>
             
@@ -143,7 +144,13 @@ const RegPage = () => {
            <p></p> 
         <button className = "submit" type="submit" href= 'https://www.epicurrence.com/' target= "blank">Submit</button>
         
-          </form></div>
+        
+          </form>
+          <div className ="3">
+                    <img className = "dog2" src = {logo1} alt = "techreg"></img>
+                </div>
+          
+          </div>
           
           </div>
         )

@@ -12,7 +12,11 @@ div{
   }
 
 .format{
-    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 100px;
+    
 }
 .avatar{
     height: 100px;
@@ -88,4 +92,17 @@ textarea{
 }
 label{
     width: 10px;
+}
+.dog{
+    background-color: #383836 ;
+    height: 200px;
+    width: 200px;
+    margin-top: 50px;
+}
+.dog2{
+    transform: scaleX(-1);
+    height: 200px;
+    width: 200px;
+    margin-top: 50px;
+
 }
