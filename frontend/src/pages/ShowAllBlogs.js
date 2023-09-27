@@ -63,6 +63,8 @@ const AllBlogs = () => {
     if (!blogs) return <h1>Loading</h1>
     return (
       
+        <div className="cc"> 
+                      
              <div id="search-container">
                 {/* Show name from google Auth */}
             <form id="SearchAllbg" method="get">
