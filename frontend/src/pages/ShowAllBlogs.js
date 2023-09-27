@@ -11,9 +11,11 @@ import { readUsers } from "../api/readUsers";
 
 
 const AllBlogs = () => {
+    let aUserName = ""
+    let aUserAvatar =""
     const { logOut, user } = UserAuth();
     console.log("Welcome to the Blogs Page")    
-    const [users, setUsers] = useState([]);
+    const [users, setUsers] = useState();
     /* useEffect(() => {
       const items = JSON.parse(localStorage.getItem('userName'));
       if (items) {
@@ -56,39 +58,82 @@ const AllBlogs = () => {
     let data=99
     useEffect(() => {
         const fetchBlogs = async () => {
-            let data = await readBlogs() // read blogs from database   
-            setBlogs(data.blog)
+            let response1 = await readUsers()  //read users from database
+            let dataUsers = response1.user
+            setUsers(dataUsers)
+            let response2 = await readBlogs() // read blogs from database
+            let dataBlogs = response2.blog
+            console.log(dataBlogs)
+            if (users!=='underfind'){
+            for (let p=0; p<dataBlogs.length; p++){
+                for (let q=0; q<users.length;q++) {
+                    if (dataBlogs[p].userID === users[q].userID) {                        
+                        console.log(aUserName, aUserAvatar)
+                        Object.assign(dataBlogs[p],{userName: users[q].userName}, {avatar: users[q].avatar})
+                        setBlogs(dataBlogs)
+                        console.log(dataBlogs)}
+         
+                    }
+                }
+            }   
+            
+
         }
-        const fetchUsers = async () => {
-            let userData = await readUsers()  //read users from database
-            setUsers(userData)
-        }
+            /* const mergeData = () => {
+            
+                console.log('passing through')
+                console.log(users);
+                console.log(data) */
+                
+            
+                
+                /* const secondcheck =() => {
+                    console.log('first check done')
+                    if (blogs.length<0 && users.user.length<0) (mergeData())
+                }     */
+                
+
+            
+       /*  } */
+        
+        
         fetchBlogs()
-        fetchUsers()
-    }, [10])   
-    let aUserName = ""
-    let aUserAvatar =""
+        /* if (users!=='underfind') {mergeData()}  */
+        
+        
+        
+        
+
+    }, [])   
+
+ /*    useEffect(()=> {
+        const mergeData = () => {
+            
+            console.log('passing through')
+            console.log(users);
+            console.log(blogs)
+            for (let p=0; p<blogs.length; p++){
+                for (let q=0; q<users.user.length;q++) {
+                    if (blogs[p].userID === users.user[q].userID) {                        
+                        console.log(aUserName, aUserAvatar)
+                        Object.assign(blogs[p],{userName: users.user[q].userName}, {avatar: users.user[q].avatar})
+        
+         
+                    }
+                }
+            }
+        
+            }
+            const secondcheck =() => {
+                console.log('first check done')
+                if (blogs.length<0 && users.user.length<0) (mergeData())
+            }    
+            if (typeof blogs !== 'undefined' && users!=='underfind') {mergeData()}
+    },[users]) */
+    
     console.log(blogs)
     console.log(users)
-    for (let p=0; p<blogs.length; p++){
-        for (let q=0; q<users.user.length;q++) {
-            if (blogs[p].userID === users.user[q].userID) {
-                
-                console.log(aUserName, aUserAvatar)
-                Object.assign(blogs[p],{userName: users.user[q].userName}, {avatar: users.user[q].avatar})
-
-                /* console.log(blogs[p].userID)
-                console.log(users.user[q].userID) */
-                
-                
-                /* blogs[p].push(aUserName)
-                /* blogs[p].push(users.user[q].avatar) */
-                /* console.log(`I have a match!`)
-                console.log(blogs[p]) */
- 
-            }
-        }
-    }
+    
 
 
     if (!blogs) return <h1>Loading</h1>
