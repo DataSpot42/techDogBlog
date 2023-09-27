@@ -34,7 +34,7 @@ const AllBlogs = () => {
         }
         fetchBlogs()
         fetchUsers()
-    }, [])   
+    }, [10])   
     let aUserName = ""
     let aUserAvatar =""
     console.log(blogs)

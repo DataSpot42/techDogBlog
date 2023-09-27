@@ -9,6 +9,7 @@ function handleKeydown(e){
       const value = e.target.value
       if(!value.trim()) return
       setTag([...tag, value])
+      console.log(tag)
       // Clear the input
       e.target.value = ''
 }
