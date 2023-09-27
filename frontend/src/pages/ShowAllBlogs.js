@@ -64,7 +64,7 @@ const AllBlogs = () => {
     return (
       
         <div className="cc">               
-            <h1>Welcome {user.displayName}</h1>
+            
              <div id="search-container">
                 {/* Show name from google Auth */}
             <form id="SearchAllbg" method="get">
