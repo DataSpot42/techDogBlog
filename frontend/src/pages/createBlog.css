@@ -1,0 +1,47 @@
+h1{
+    color: white
+}
+.blog{
+    background-color: #383836;
+    border-color: white;
+    border-width: 10px;
+    border-radius: 10px;
+}
+form{
+    
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 10px;
+    color: white;
+    background-color: #383836;
+    
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 300px
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.titlebox:focus{
+    box-shadow: 0 1px 3px 2px #6BB4FD;
+  border: 1px solid #6BB4FD;
+}
+
+
+.select1{
+    visibility: hidden;
+}
+
+.textbox:focus{
+    box-shadow: 0 1px 3px 2px #6BB4FD;
+  border: 1px solid #6BB4FD;
+}

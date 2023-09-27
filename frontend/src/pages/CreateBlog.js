@@ -3,7 +3,7 @@ import { addBlog } from "../api/addBlog"
 import { useNavigate } from "react-router-dom"
 import { UserAuth } from '../components/AuthContext';
 import Tags from "../components/Tags";
-
+import './createBlog.css'
 
 
 import "../components/addblog.css"
@@ -68,13 +68,17 @@ const CreateBlog = () => {
 
 
         return (
-            <div>
+            <div className = "blog">
+            <h1> Create a new blog post </h1>
             <form onSubmit={handleSubmit}>
-            <label htmlFor="title">Title:</label>
-            <input type="title" id="title" name="title" value={formData.title} onChange={handleChange}/>
-      
-           
-
+                <div className = "container"> 
+                <div className = "title">
+            <label  htmlFor="title">Title:</label>
+            <p></p>
+            <input className = "titlebox" type="title" id="title" name="title" value={formData.title} onChange={handleChange}/>
+            <p></p>
+            </div>
+            <div className = "select">
             <label>
 			Select an option:
 				<select  value={selectedOption} onChange={handleDropdownChange}>
@@ -86,12 +90,16 @@ const CreateBlog = () => {
                 <option  value="Consumer Tech">Consumer Tech</option>
 			</select>
 		</label>
-		<p>Selected option: {selectedOption}</p>
-
+		<p className = "select1">Selected option: {selectedOption}</p>
+        </div>
+        </div>
       
             <label htmlFor="text">Text:</label>
-            <textarea id="text" name="text" value={formData.text} onChange={handleChange}/>
+            <p></p>
+            <textarea className = "textbox" id="text" name="text" value={formData.text} onChange={handleChange}/>
+            <p></p>
             <label htmlFor="image">Add Image URL:</label>
+            <p></p>
             <input id="image" name="image" value={formData.image} onChange={handleChange}/>
             <Tags onChange={(event) => setInputValue(event.target.value)}/>
             
