@@ -80,11 +80,11 @@ const ShowMyBlogs = () => {
     console.log(myBlog)
     useEffect(() => {
         const filterMyBlogs = async () => {
-            if (myBlog.length>1){setMyBlogs(myBlog)}
+            setMyBlogs(myBlog)
             console.log('useEffective')
         }
         filterMyBlogs()
-    }, [myBlog])
+    }, [])
     console.log(myBlogs)
 
     return (
@@ -105,7 +105,7 @@ const ShowMyBlogs = () => {
 
 
 
-                {myBlogs.length>1 ? myBlogs.map((myBlogs, index) => <div className="blogsFlex">
+                {myBlogs? myBlogs.map((myBlogs, index) => <div className="blogsFlex">
                     <Card myBlogs={myBlogs} />
 
                 </div>) : <p>Loading...</p>}
