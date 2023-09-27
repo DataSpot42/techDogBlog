@@ -9,7 +9,7 @@ import Cards from '../components/Card.js'
 import { readUsers } from "../api/readUsers";
 
 
-const AllBlogs = () => {
+const ShowMyBlogs = () => {
     const { logOut, user } = UserAuth();
     console.log("Welcome to the Blogs Page")    
     const [users, setUsers] = useState([]);
@@ -58,11 +58,18 @@ const AllBlogs = () => {
             }
         }
     }
-
-
-    if (!blogs) return <h1>Loading</h1>
+    let myBlogs = []
+    for (let u=0;u<blogs.length; u++) {
+    
+    if (!user.uid === blogs[u].userID) { 
+        myBlogs.push(blogs[u])
+    }
+}
+        
+console.log(myBlogs)
     return (
-      
+        <div className="cc">               
+            <h1>Welcome {user.displayName}</h1>
              <div id="search-container">
                 {/* Show name from google Auth */}
             <form id="SearchAllbg" method="get">
@@ -88,4 +95,4 @@ const AllBlogs = () => {
        
     )
 }
-export default AllBlogs;
+export default ShowMyBlogs;
