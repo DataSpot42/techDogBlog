@@ -9,6 +9,7 @@ import Cards from '../components/Card.js'
 import { readUsers } from "../api/readUsers";
 
 
+
 const AllBlogs = () => {
     const { logOut, user } = UserAuth();
     console.log("Welcome to the Blogs Page")    
@@ -20,6 +21,36 @@ const AllBlogs = () => {
       }
     }, []); */
     console.log(user)
+    const [searchTerm, setSearchTerm] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
+    const handleChangeSearch = event => {
+      setSearchTerm(event.target.value);
+      
+    };
+
+    useEffect(() => {
+        
+        const fetchBlogs = async () => {
+            let data = await readBlogs() // read blogs from database   
+            setBlogs(data.blog.group)
+        }
+        const fetchUsers = async () => {
+            let userData = await readUsers()  //read users from database
+            setUsers(userData)
+        }
+        fetchBlogs()
+        fetchUsers()
+        
+        const filterBlogs = async ()  => {
+            const results =  blogs.includes(searchTerm)
+         setSearchResults(results);
+        }
+        
+        filterBlogs()
+
+
+        
+      }, [searchTerm]);
 
     const [blogs,setBlogs] = useState([])
     let data=99
@@ -70,7 +101,8 @@ const AllBlogs = () => {
             <form id="SearchAllbg" method="get">
                 <label>
                   { /* <button className="btn-allbg" type="submit" name="submit" className="submit" value="Search">submit</button> */}
-                <input Id="searchBar2" Name="search" type="text" className="search" placeholder="Search Our blogs..."></input>
+                <input value={searchTerm}
+          onChange={handleChangeSearch} Id="searchBar2" Name="search" type="text" className="search" placeholder="Search Our blogs..."></input>
                 
                 </label>
             </form>
