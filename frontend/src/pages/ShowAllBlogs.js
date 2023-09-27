@@ -33,7 +33,8 @@ const AllBlogs = () => {
             let response2 = await readBlogs() // read blogs from database
             let dataBlogs = response2.blog
             console.log(dataBlogs)
-            if (users!=='underfind'){
+            console.log(users)
+            if (typeof users!=='underfind'){
             for (let p=0; p<dataBlogs.length; p++){
                 for (let q=0; q<users.length;q++) {
                     if (dataBlogs[p].userID === users[q].userID) {                        
