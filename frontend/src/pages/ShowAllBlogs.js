@@ -11,7 +11,7 @@ import { readUsers } from "../api/readUsers";
 
 
 const AllBlogs = () => {
-    const { logOut, user } = React.UserAuth();
+    const { logOut, user } = UserAuth();
     console.log("Welcome to the Blogs Page")    
     const [users, setUsers] = useState([]);
     /* useEffect(() => {
