@@ -1,7 +1,7 @@
 import { useEffect, useState, React } from "react";
 import { UserAuth } from '../components/AuthContext';
 import { readBlogs } from "../api/readBlogs";
-
+import React from "react";
 import Card from '../components/Card'
 import {HiSearch} from 'react-icons/hi'
 import './showAllBlogs.css'
@@ -9,8 +9,9 @@ import Cards from '../components/Card.js'
 import { readUsers } from "../api/readUsers";
 
 
+
 const AllBlogs = () => {
-    const { logOut, user } = UserAuth();
+    const { logOut, user } = React.UserAuth();
     console.log("Welcome to the Blogs Page")    
     const [users, setUsers] = useState([]);
     /* useEffect(() => {
@@ -20,7 +21,11 @@ const AllBlogs = () => {
       }
     }, []); */
     console.log(user)
-
+    const [searchTerm, setSearchTerm] = useState("");
+    const handleChangeSearch = event => {
+      setSearchTerm(event.target.value);
+      console.log(searchTerm)
+    };
     const [blogs,setBlogs] = useState([])
     let data=99
     useEffect(() => {
@@ -70,7 +75,8 @@ const AllBlogs = () => {
             <form id="SearchAllbg" method="get">
                 <label>
                   { /* <button className="btn-allbg" type="submit" name="submit" className="submit" value="Search">submit</button> */}
-                <input Id="searchBar2" Name="search" type="text" className="search" placeholder="Search Our blogs..."></input>
+                <input value={searchTerm}
+          onChange={handleChangeSearch} Id="searchBar2" Name="search" type="text" className="search" placeholder="Search Our blogs..."></input>
                 
                 </label>
             </form>
