@@ -71,8 +71,8 @@ const AllBlogs = () => {
             let response2 = await readBlogs() // read blogs from database
             let dataBlogs = response2.blog
             console.log(dataUsers)
-            let dataMerge = {}
-            dataMerge = await DataMerge(dataBlogs, dataUsers)
+            let dataMerge={}
+            dataMerge= await DataMerge(dataBlogs, dataUsers)
             console.log(dataMerge)
             setBlogs(dataBlogs)
             setUsers(dataUsers)
@@ -95,9 +95,10 @@ const AllBlogs = () => {
                             onChange={(e) => setSearchTerm(e.target.value)} Id="searchBar2" Name="search" type="text" className="search" placeholder="Search Our blogs..."></input>
                         {/* <button onclick={handleChangeSearch}> Search </button> */}
                     </label>
+                    <div className="bb">
                     <button className="btn-allbg" type="submit" name="submit" value="Search">submit</button>
                     <button className="btn-allbg" onClick={(e)=>handleClearFilter(e)}>Clear Filter</button>
-
+                    </div>
                 </form>
             </div>
 
@@ -112,7 +113,7 @@ const AllBlogs = () => {
                 {/* Show all blogs */}
             </div >
             <div>
-
+            
             </div>
         </div>
 

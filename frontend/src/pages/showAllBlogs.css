@@ -21,7 +21,7 @@ grid-template-rows: repeat(4, 1fr);
     color: white;
 }
 #SearchAllbg{
-    background: red;
+  
     border-radius: 20px;
     position: relative;
     min-width: 60%;;
@@ -63,6 +63,31 @@ grid-template-rows: repeat(4, 1fr);
     background-color: #424241;
     border-radius: 20px;
   height: 100%;
+}
+.bb{
+    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-allbg{
+    background-color: #575656;
+    color: white;
+    border-radius: 10px;
+    padding: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: .05em;
+    margin-right: 8px;
+    margin-top: 8px;
+  
+}
+
+.btn-allbg:hover{
+    background-color:#6BB4FD;
+
 }
 
 @media only screen and (min-width: 1140px) {

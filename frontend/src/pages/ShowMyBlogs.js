@@ -62,6 +62,7 @@ const ShowMyBlogs = () => {
         dataMerge= await MyDataMerge(dataBlogs, dataUsers, user)  // filtering blogs to show my blogs and adding user info
         console.log(dataMerge)
         setBlogs(dataMerge)  //updating blogs after filter
+
     };
 
 
