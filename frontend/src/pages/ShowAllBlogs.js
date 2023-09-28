@@ -7,8 +7,10 @@ import { HiSearch } from 'react-icons/hi'
 import './showAllBlogs.css'
 import Cards from '../components/Card.js'
 import { readUsers } from "../api/readUsers";
-import { Comments } from './Comments'
-import { Link } from "react-router-dom"
+
+import {Comments} from './Comments'
+import {Link} from "react-router-dom"
+import SearchBlogs from '../components/searchBlogs.js'
 
 
 const AllBlogs = () => {
@@ -22,10 +24,21 @@ const AllBlogs = () => {
     console.log(user)
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
-    const handleChangeSearch = event => {
-        setSearchTerm(event.target.value);
+    
+   
+    
+    const handleChangeSearch = () => {
+   
+      
+           let searchResult = []
+           searchResult = SearchBlogs(blogs, searchTerm)
+           console.log(searchResults)
+           /* setBlogs(searchResult)*/
+
 
     };
+    
+    console.log(searchResults)
 
 
     const [blogs, setBlogs] = useState([])
@@ -59,9 +72,10 @@ const AllBlogs = () => {
                     <label>
                         { /* <button className="btn-allbg" type="submit" name="submit" className="submit" value="Search">submit</button> */}
                         <input value={searchTerm}
-                            onChange={handleChangeSearch} Id="searchBar2" Name="search" type="text" className="search" placeholder="Search Our blogs..."></input>
-
+                            onChange={(e) => setSearchTerm(e.target.value)} Id="searchBar2" Name="search" type="text" className="search" placeholder="Search Our blogs..."></input>
+  <button onclick={handleChangeSearch}> Search </button>
                     </label>
+                  
                 </form>
             </div>
 
