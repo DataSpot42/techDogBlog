@@ -35,6 +35,21 @@ const AllBlogs = () => {
            console.log(searchResult)
            setBlogs(searchResult)
     }
+    const handleClearFilter = async () => {
+        let response1 = await readUsers()  //read users from database
+        let dataUsers = response1.user
+        console.log(response1)
+        let response2 = await readBlogs() // read blogs from database
+        let dataBlogs = response2.blog
+        console.log(dataUsers)
+        let dataMerge = {}
+        dataMerge = await DataMerge(dataBlogs, dataUsers)
+        console.log(dataMerge)
+        setBlogs(dataBlogs)
+        setUsers(dataUsers)
+    }
+
+
 
     const handleChangeSearch = () => {
 
@@ -75,11 +90,13 @@ const AllBlogs = () => {
                 {/* Show name from google Auth */}
                 <form id="SearchAllbg" method="get" onSubmit={(e) => handleSubmit(e)} >
                     <label>
-                        <button className="btn-allbg" type="submit" name="submit" value="Search">submit</button>
+                        
                         <input value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)} Id="searchBar2" Name="search" type="text" className="search" placeholder="Search Our blogs..."></input>
                         {/* <button onclick={handleChangeSearch}> Search </button> */}
                     </label>
+                    <button className="btn-allbg" type="submit" name="submit" value="Search">submit</button>
+                    <button className="btn-allbg" onClick={(e)=>handleClearFilter(e)}>Clear Filter</button>
 
                 </form>
             </div>
