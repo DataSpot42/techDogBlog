@@ -100,11 +100,11 @@ const CreateBlog = () => {
             <p></p>
             <label htmlFor="image">Add Image URL:</label>
             <p></p>
-            <input id="image" name="image" value={formData.image} onChange={handleChange}/>
+            <input id="image" className="image" value={formData.image} onChange={handleChange}/>
             <Tags onChange={(event) => setInputValue(event.target.value)}/>
             
           </form>
-          <button onClick={()=>handleSave()}>Save</button>
+          <button className = "post" onClick={()=>handleSave()}>Post</button>
           </div>
 
         )
