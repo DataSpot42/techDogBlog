@@ -17,47 +17,16 @@ const RegPage = () => {
     const { logOut, user } = UserAuth();
     console.log(user)
     const [chosenAvatar,SetChosenAvator] = useState("")
-    const [gender,SetGender] = useState("")
+    
     const [found,setFound] = useState(false)
     /* const [user, setUser] = useState([]); */
     const [formData, setFormData] = useState(
-        {userName: "",aboutMe: "", gender: "", realName: "", email: "", userID: ""});
+        {userName: "",aboutMe: "", realName: "", email: "", userID: ""});
     const [selectedOption, setSelectedOption] = useState("Select");
+    let myID=0  
 
-    /* useEffect(() => { */
-        /* const items = JSON.parse(localStorage.getItem('googleUser'));
-        if (items) {
-         setUser(items);
-         console.log(user) */
-         
-        
-        
-     /*  }, []); */
-    let myID=0
 
     
- /*  useEffect(() => {
-        const fetchData = async() => {
-            let data = await readUsers(); // read blogs from database   
-            setUsers(data);}
-            if (!user) {
-            for (let i=0; i<users.user.length; i++){
-                if (users.user[i].userID === user.uid) {
-                    console.log('should be true')
-                    setFound(true)
-                    myID = users.user[i]._id
-                } else {
-                    setFound(false)
-                
-                }}}
-            
-
-
-
-        fetchData()                
-    },[user]) */
-
-    console.log(formData)
     
 
 	const  handleDropdownChange = (event) => {
@@ -79,7 +48,7 @@ const RegPage = () => {
         
         const handleSubmit =  async (e) => {
             e.preventDefault();
-            console.log(user)
+            
             setFormData((prevFormData) => 
             ({ ...prevFormData, realName: user.displayName, email: user.email, userID: user.uid }));
             console.log(formData)
@@ -95,7 +64,7 @@ const RegPage = () => {
         }
             
             alert(`title: ${formData.userName}, text: ${formData.aboutMe},  
-            Gender ${formData.gender} Avatar: ${formData.avatar} ${found} ${myID}` );
+             Avatar: ${formData.avatar} ${found} ${myID}` );
             
         };    
         const avatarHandler = (url) => {
@@ -124,11 +93,7 @@ const RegPage = () => {
             <label htmlFor="userName">User Name<p></p> </label>
             
             <input type="userName" id="userName" name="userName" value={formData.title} onChange={handleChange}/>
-            <p>Gender</p>
-            <input type="radio" id="radio" name="gender" value="Male" onChange={handleChange}/>
-            <label for="male">Male</label>
-            <input type="radio" id="radio" name="gender" value="Female" onChange={handleChange}/>
-            <label for="female">Female</label>
+            
             <p></p>
            
 		

@@ -5,7 +5,7 @@ export const readUsers = async (data) => {
      // your backend server is running on port 4000
      // from your routes>items.js 
      // this request is for the 'getBlogs' controller
-     console.log(data)
+     
      let response = await fetch(`${API_URL}/users/users`)
      // convert to json()
      data = await response.json()
