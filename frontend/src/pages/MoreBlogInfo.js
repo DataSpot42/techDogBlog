@@ -5,7 +5,7 @@ import { getBlog } from "../api/getBlog";
 import { useNavigate } from "react-router-dom"
 import { useLocation } from "react-router";
 import Tags from "../components/Tags";
-import './editMyBlogs.css';
+import './moreBlogInfo.css';
 import { UserAuth } from "../components/AuthContext";
 
 const MoreBlogInfo = (blog) => {
