@@ -14,8 +14,8 @@ import { deleteBlog } from "../api/deleteBlog";
 
 const ShowMyBlogs = () => {
     /* let dataBlogs= [] */
-    let aUserName = ""
-    let aUserAvatar = ""
+    /* let aUserName = ""
+    let aUserAvatar = "" */
     const { logOut, user } = UserAuth();
     console.log("Welcome to the Blogs Page")
     const [users, setUsers] = useState();
@@ -52,9 +52,16 @@ const ShowMyBlogs = () => {
     const deleteHandler = async (blog) => {
         deleteBlog(blog, blog._id)     // deletes item from database
         let updatedBlogs = await readBlogs()
-        updatedBlogs = await readBlogs()  //updates basket display
-        console.log(updatedBlogs.blog)
-        setBlogs(updatedBlogs.blog)
+        let response1 = await readUsers()  //read users from database
+        let dataUsers = response1.user
+        console.log(response1)
+        let response2 = await readBlogs() // read blogs from database
+        let dataBlogs = response2.blog
+        console.log(dataUsers)
+        let dataMerge={}
+        dataMerge= await MyDataMerge(dataBlogs, dataUsers, user)  // filtering blogs to show my blogs and adding user info
+        console.log(dataMerge)
+        setBlogs(dataMerge)  //updating blogs after filter
     };
 
 
