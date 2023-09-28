@@ -33,7 +33,7 @@ const blogSchema = new Schema({
         type: Number
     },
     comments: [{
-        userID: {type: Number},    
+        userID: {type: String},    
         comment: {type: String}      
     }]           
 }         
