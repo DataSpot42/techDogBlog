@@ -5,7 +5,7 @@ import Networking from './images/networking.webp'
 
 
 const Card = ({blog}) => {
-    console.log(blog)
+    
     
 
     return (
