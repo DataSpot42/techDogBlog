@@ -2,7 +2,7 @@ import React from 'react';
 import Login from "./jess"
 import HomePage from "../src/pages/BlogHome"
 import Navbar from "./components/NavBar"
-import CreateBlog from "./pages/CreateBlog"
+import CreateBlog from './pages/CreateBlog';
 import Protected from './pages/Protected';
 import { AuthContextProvider } from './components/AuthContext';
 import Account from './pages/Account';
@@ -24,7 +24,7 @@ const App = () => {
         <Navbar />
         <Routes>
         <Route
-            path='/createBlog'
+            path='/CreateBlog'
             element={<CreateBlog />}
           />      
           

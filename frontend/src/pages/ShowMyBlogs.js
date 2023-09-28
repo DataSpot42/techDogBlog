@@ -39,10 +39,11 @@ const ShowMyBlogs = () => {
             let dataBlogs = response2.blog
             console.log(dataUsers)
             let dataMerge={}
-            dataMerge= await MyDataMerge(dataBlogs, dataUsers)
+            dataMerge= await MyDataMerge(dataBlogs, dataUsers, user)
             console.log(dataMerge)
-            setBlogs(dataBlogs)
+            setBlogs(dataMerge)
             setUsers(dataUsers)
+
         }
         fetchUsers()
     }, [])
