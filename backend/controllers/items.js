@@ -44,7 +44,7 @@ const editBlog = async (req, res) => {
     // get id from ':id' param from the route
     const { id } = req.params
     // use mongoose model method findByIdAndUpdate
-    const punk = await Blog.findByIdAndUpdate(id, ({
+    const blog = await Blog.findByIdAndUpdate(id, ({
     userID: req.body.userID,
     blogID: req.body.blogID,    
     timeStamp: req.body.timeStamp, 
@@ -58,7 +58,7 @@ const editBlog = async (req, res) => {
 
     
 }))
-    res.status(200).json(punk)
+    res.status(200).json(blog)
 }
 const deleteBlog = async (req, res) => {
     // get id from ':id' param from the route

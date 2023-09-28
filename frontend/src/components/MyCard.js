@@ -39,7 +39,7 @@ const MyCard = ({blog}) => {
                <div className="tags-cards"><p>#Computing</p></div>
                <Link className="btnLinks"
 
-                to={`EditMyBlogs/${blog._id}`}
+                to={`/EditMyBlogs/${blog._id}`}
 
             > edit
 
