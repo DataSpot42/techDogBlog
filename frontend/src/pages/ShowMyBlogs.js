@@ -7,6 +7,7 @@ import { HiSearch } from 'react-icons/hi'
 import './showAllBlogs.css'
 import Cards from '../components/Card.js'
 import { readUsers } from "../api/readUsers";
+import MyDataMerge from "../components/MyDataMerge";
 
 
 
@@ -38,7 +39,7 @@ const ShowMyBlogs = () => {
             let dataBlogs = response2.blog
             console.log(dataUsers)
             let dataMerge={}
-            dataMerge= await DataMerge(dataBlogs, dataUsers)
+            dataMerge= await MyDataMerge(dataBlogs, dataUsers)
             console.log(dataMerge)
             setBlogs(dataBlogs)
             setUsers(dataUsers)
