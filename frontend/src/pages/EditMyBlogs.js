@@ -155,6 +155,7 @@ const EditMyBlogs = (blog) => {
             
           </form>
           <button className = "post" onClick={()=>handleSave()}>Update</button>
+
           </div>
             
         </div>

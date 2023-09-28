@@ -98,8 +98,11 @@ margin-bottom: 0px;
 .card_item:hover{
     border-radius: 8px;
     box-shadow: 3px 1px 10px lightgray;
-    backdrop-filter: blur(6.1px);
-    
-   
+    backdrop-filter: blur(6.1px);   
+}
+
+.blogpost{
+    display: flex;
+    flex-direction: row;
     
 }
