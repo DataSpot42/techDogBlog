@@ -95,9 +95,10 @@ const AllBlogs = () => {
                             onChange={(e) => setSearchTerm(e.target.value)} Id="searchBar2" Name="search" type="text" className="search" placeholder="Search Our blogs..."></input>
                         {/* <button onclick={handleChangeSearch}> Search </button> */}
                     </label>
+                    <div className="bb">
                     <button className="btn-allbg" type="submit" name="submit" value="Search">submit</button>
                     <button className="btn-allbg" onClick={(e)=>handleClearFilter(e)}>Clear Filter</button>
-
+                    </div>
                 </form>
             </div>
 
