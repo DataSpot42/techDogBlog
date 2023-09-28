@@ -81,7 +81,7 @@ const CreateBlog = () => {
             
             <div className = "select">
             <label>
-			Select an option:
+			Select an option:&nbsp;&nbsp;
 				<select  value={selectedOption} onChange={handleDropdownChange}>
 				<option  value="Networking">Networking</option>
 				<option  value="Soft Dev">Soft Dev</option>
