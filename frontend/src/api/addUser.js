@@ -11,8 +11,7 @@ export const addUser = async (user) => {
         userName: user.userName,
         realName: user.realName,
         avatar: user.avatar,
-        email: user.email,
-        gender: user.gender,
+        email: user.email,        
         aboutMe: user.aboutMe
         }
     console.log(obj)
