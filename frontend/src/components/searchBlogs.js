@@ -6,14 +6,17 @@ const SearchBlogs = async (blogs, search) => {
   let searchArry = []
   console.log(blogs)
   console.log(search)
+  let lowertitle = ""
+  let lowertext = ""
 
   for (let i = 0; i < blogs.length; i++) {
-    if (blogs[i].title.includes(search)) {
+      lowertitle = blogs[i].title.toLowerCase()
+      lowertext = blogs[i].text.toLowerCase()
+      
+    if (lowertitle.includes(search.toLowerCase()) || lowertext.includes(search.toLowerCase()) ) {
       searchArry.push(blogs[i])
     }
-    if (blogs[i].text.includes(search)) {
-      searchArry.push(blogs[i])
-    }
+    
     
 
 
