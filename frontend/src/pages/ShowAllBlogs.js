@@ -7,7 +7,8 @@ import { HiSearch } from 'react-icons/hi'
 import './showAllBlogs.css'
 import Cards from '../components/Card.js'
 import { readUsers } from "../api/readUsers";
-
+import {Comments} from './Comments'
+import {Link} from "react-router-dom"
 
 
 const AllBlogs = () => {
@@ -74,6 +75,11 @@ const AllBlogs = () => {
                 </div>) : <p>Loading...</p>}
                 {/* Show all blogs */}
             </div >
+            <div>
+            <Link className="btnLinks"
+
+to={`/Comments`}> Comments </Link>
+            </div>
         </div>
 
     )
