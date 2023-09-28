@@ -7,6 +7,7 @@ import { HiSearch } from 'react-icons/hi'
 import './showAllBlogs.css'
 import { readUsers } from "../api/readUsers";
 import MyDataMerge from "../components/MyDataMerge";
+import { deleteBlog } from "../api/deleteBlog";
 
 
 
@@ -48,6 +49,14 @@ const ShowMyBlogs = () => {
         fetchUsers()
     }, [])
 
+    const deleteHandler = async (blog) => {
+        deleteBlog(blog, blog._id)     // deletes item from database
+        let updatedBlogs = await readBlogs()
+        updatedBlogs = await readBlogs()  //updates basket display
+        console.log(updatedBlogs.blog)
+        setBlogs(updatedBlogs.blog)
+    };
+
 
     if (!blogs) return <h1>Loading</h1>
     return (
@@ -71,7 +80,7 @@ const ShowMyBlogs = () => {
 
 
                 {blogs ? blogs.map((blogs, index) => <div className="blogsFlex">
-                    <MyCard blog={blogs} />
+                    <MyCard blog={blogs}  deleteHandler={deleteHandler} />
 
                 </div>) : <p>Loading...</p>}
                 {/* Show all blogs */}

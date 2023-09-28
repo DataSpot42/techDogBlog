@@ -75,9 +75,11 @@ const AllBlogs = () => {
                     <Link className="btnLinks"
 
 to={`/Comments`}> Comments </Link>
+
                     <Link className="btnLinks"
 
 to={`/MoreInfo`}> MoreInfo </Link>
+
                 </div>) : <p>Loading...</p>}
                 {/* Show all blogs */}
             </div >
