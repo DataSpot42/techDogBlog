@@ -30,18 +30,60 @@ form{
     flex-direction: column;
     justify-content: flex-start;
 }
-
+.titlebox{
+    text-align: start;
+    height: 30px;
+    width: 700px;
+    font-size: 14px;
+}
 .titlebox:focus{
+    
     box-shadow: 0 1px 3px 2px #6BB4FD;
   border: 1px solid #6BB4FD;
+  
 }
 
 
 .select1{
     visibility: hidden;
 }
+.textbox{
+    height: 100px;
+    width: 1300px;
+    font-size: 14px;
 
+}
 .textbox:focus{
     box-shadow: 0 1px 3px 2px #6BB4FD;
   border: 1px solid #6BB4FD;
+  
 }
+.image:focus{
+    box-shadow: 0 1px 3px 2px #6BB4FD;
+    border: 1px solid #6BB4FD;
+}
+.image{
+    
+  height: 30px;
+  width: 700px
+}
+
+.post{
+    display: flex;
+    justify-self:flex-end ;
+    margin: 20px;
+    background-color: #575656;
+    color: white;
+    border-radius: 10px;
+    position: relative;
+  margin: auto;
+  padding: 3px 7px;
+  background: #575656;
+  transform: translate3d(0px, 0%, 0px);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: .05em;
+  transition-delay: .6s;
+  overflow: hidden;
+  }
