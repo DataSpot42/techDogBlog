@@ -89,9 +89,9 @@ const EditMyBlogs = (blog) => {
     if (!toUpdate) return <h1>Loading</h1>
     return (
     
-    <div className="edit-container">
-             
         <div>
+             
+    
         <div className='card_item'>
             <div className="card_top">
                  <div className="card-img-top"> <img src={toUpdate.image} alt="BlogImage" height="100" width="auto" ></img>{/*blog.image*/}</div>
@@ -111,8 +111,8 @@ const EditMyBlogs = (blog) => {
             </div>          
             <div className="tags-cards"><p>#Computing</p></div>
             </div>
-            </div>
-            </div>
+            
+            
             <div className = "blog">
             <h1> Update your blog post </h1>
             <form onSubmit={handleSubmit}>
@@ -154,8 +154,8 @@ const EditMyBlogs = (blog) => {
           </div>
             
         </div>
-        
-    
+        </div>
+
     )
 
     

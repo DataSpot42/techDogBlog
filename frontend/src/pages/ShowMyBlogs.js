@@ -53,8 +53,8 @@ const ShowMyBlogs = () => {
         deleteBlog(blog, blog._id)     // deletes item from database
         let updatedBlogs = await readBlogs()
         updatedBlogs = await readBlogs()  //updates basket display
-        console.log(updatedBlogs.blog)
-        setBlogs(updatedBlogs.blog)
+        console.log(updatedBlogs)
+        setBlogs(updatedBlogs)
     };
 
 

@@ -56,8 +56,8 @@ const AllBlogs = () => {
             let response2 = await readBlogs() // read blogs from database
             let dataBlogs = response2.blog
             console.log(dataUsers)
-            let dataMerge = {}
-            dataMerge = await DataMerge(dataBlogs, dataUsers)
+            let dataMerge={}
+            dataMerge= await DataMerge(dataBlogs, dataUsers)
             console.log(dataMerge)
             setBlogs(dataBlogs)
             setUsers(dataUsers)
@@ -95,7 +95,7 @@ const AllBlogs = () => {
                 {/* Show all blogs */}
             </div >
             <div>
-
+            
             </div>
         </div>
 
