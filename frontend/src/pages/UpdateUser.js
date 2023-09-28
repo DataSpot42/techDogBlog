@@ -1,7 +1,7 @@
 import Avatar from './Avatar.js'
 import { useState, useEffect } from "react"
-import { addBlog } from "../api/addBlog"
-import { UserAuth } from '../components/AuthContext';
+import { addBlog } from "../api/addBlog.js"
+import { UserAuth } from '../components/AuthContext.js';
 import { useNavigate } from "react-router-dom"
 import '../components/reg.css'
 import { readUsers } from '../api/readUsers.js';
@@ -10,7 +10,6 @@ import { UpdateUser } from '../components/updateUser.js';
 import { addUser } from '../api/addUser.js';
 import { editUser } from '../api/editUser.js'
 import logo1 from '../components/images/techreg.png'
-import { checkUsers } from '../api/checkUsers.js';
 
 const RegPage = () => {
     const [users,setUsers] = useState()
@@ -79,22 +78,42 @@ const RegPage = () => {
         
         const handleSubmit =  async (e) => {
             e.preventDefault();
-            console.log(user)
             setFormData((prevFormData) => 
             ({ ...prevFormData, realName: user.displayName, email: user.email, userID: user.uid }));
             console.log(formData)
             let myID=""
-            console.log(formData)
-            checkUsers(user, formData)    
+            /* if (!user) {
+                console.log('got user')
+                for (let i=0; i<users.user.length; i++){
+                    if (users.user[i].userID === user.uid) {
+                        console.log('should be true')
+                        setFound(true)
+                        myID = users.user[i]._id
+                    } else {
+                        setFound(false)
+                    
+                    }}}
+             */
+            /* let data = await readUsers() // read blogs from database   
+            setUsers(data)               */
+                
             console.log(users)
             if (users){
             console.log(users)    
             
-           
-            
+           /*  for (let i=0; i<users.user.length; i++){
+                if (users.user[i].userID === user.uid) {
+                    found = true
+                    myID = users.user[i]._id
+                } else {
+                    found = false
+                
+                }
+            } */
+            addUser(formData)
         }
             
-            alert(`title: ${formData.userName}, text: ${formData.aboutMe},  
+            alert(`title: ${formData.userName}, text: ${formData.aboutMe}, Group: ${formData.group}, 
             Gender ${formData.gender} Avatar: ${formData.avatar} ${found} ${myID}` );
             
         };    
@@ -130,7 +149,17 @@ const RegPage = () => {
             <input type="radio" id="radio" name="gender" value="Female" onChange={handleChange}/>
             <label for="female">Female</label>
             <p></p>
-           
+           {/* <label>
+			What group aligns with you most?:
+				<select  value={formData.group} onChange={handleDropdownChange}>
+				<option  value="Networking">Networking</option>
+				<option  value="Soft Dev">Soft Dev</option>
+				<option  value="Cloud Engineering">Cloud Engineering</option>
+                <option  value="IT Support">IT Support</option>
+                <option  value="Web Design">Web Design</option>
+                <option  value="Consumer Tech">Consumer Tech</option>
+			</select>
+		</label>*/ }
 		
             <p></p>
       

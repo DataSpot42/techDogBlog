@@ -1,8 +1,11 @@
 const API_URL = `http://localhost:4000`
 
 export const addUser = async (user) => {
-    /* console.log(punk.items[0]) */
-    // pass paramter to function
+    
+
+    
+    
+
     // create new object with 'text' key (depending on your Model)
     let obj = { userID: user.userID,
         userName: user.userName,
