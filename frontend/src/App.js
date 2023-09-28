@@ -15,6 +15,7 @@ import ShowMyBlogs from './pages/ShowMyBlogs';
 import UpdateUser from './pages/UpdateUser';
 import EditMyBlogs from './pages/EditMyBlogs';
 import Comments from './pages/Comments'
+import MoreInfo from './pages/MoreInfo'
 
 const App = () => {
   return (
@@ -38,6 +39,11 @@ const App = () => {
             path='/Comments'
             element={<Comments />}
           />   
+
+          <Route
+            path='/MoreInfo'
+            element={<MoreInfo />}
+          />  
         
           <Route
             path='/'

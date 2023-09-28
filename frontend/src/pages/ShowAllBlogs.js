@@ -9,6 +9,7 @@ import Cards from '../components/Card.js'
 import { readUsers } from "../api/readUsers";
 import {Comments} from './Comments'
 import {Link} from "react-router-dom"
+import MoreInfo from './MoreInfo'
 
 
 const AllBlogs = () => {
@@ -74,6 +75,9 @@ const AllBlogs = () => {
                     <Link className="btnLinks"
 
 to={`/Comments`}> Comments </Link>
+                    <Link className="btnLinks"
+
+to={`/MoreInfo`}> MoreInfo </Link>
                 </div>) : <p>Loading...</p>}
                 {/* Show all blogs */}
             </div >

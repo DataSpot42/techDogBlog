@@ -85,7 +85,7 @@ const EditMyBlogs = (blog) => {
     if (!toUpdate) return <h1>Loading</h1>
     return (
     
-        <div>
+        <div className = "edit">
              
     
         <div className='card_item'>
@@ -118,6 +118,7 @@ const EditMyBlogs = (blog) => {
                 
                
             </div>
+            </div>
             <div className = "blog">
             <h1> Update your blog post </h1>
             <form onSubmit={handleSubmit}>
@@ -129,17 +130,8 @@ const EditMyBlogs = (blog) => {
             <p></p>
             </div>
             <div className = "select">
-            <label>
-			Select an option:
-				<select  value={selectedOption} onChange={handleDropdownChange}>
-				<option  value="Networking">Networking</option>
-				<option  value="Soft Dev">Soft Dev</option>
-				<option  value="Cloud Engineering">Cloud Engineering</option>
-                <option  value="IT Support">IT Support</option>
-                <option  value="Web Design">Web Design</option>
-                <option  value="Consumer Tech">Consumer Tech</option>
-			</select>
-		</label>
+           
+		
 		<p className = "select1">Selected option: {selectedOption}</p>
         </div>
         </div>
@@ -158,7 +150,7 @@ const EditMyBlogs = (blog) => {
 
           </div>
             
-        </div>
+        
         </div>
 
     )
