@@ -2,12 +2,12 @@ import { useEffect, useState, React, forceUpdate } from "react";
 import { UserAuth } from '../components/AuthContext';
 import { readBlogs } from "../api/readBlogs";
 import DataMerge from "../components/dataMerge";
-import Card from '../components/Card'
+import MyCard from '../components/MyCard'
 import { HiSearch } from 'react-icons/hi'
 import './showAllBlogs.css'
-import Cards from '../components/Card.js'
 import { readUsers } from "../api/readUsers";
 import MyDataMerge from "../components/MyDataMerge";
+
 
 
 
@@ -71,7 +71,7 @@ const ShowMyBlogs = () => {
 
 
                 {blogs ? blogs.map((blogs, index) => <div className="blogsFlex">
-                    <Card blog={blogs} />
+                    <MyCard blog={blogs} />
 
                 </div>) : <p>Loading...</p>}
                 {/* Show all blogs */}

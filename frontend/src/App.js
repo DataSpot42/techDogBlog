@@ -13,6 +13,7 @@ import RegPage from './pages/RegPage'
 import AllBlogs from './pages/ShowAllBlogs'
 import ShowMyBlogs from './pages/ShowMyBlogs';
 import UpdateUser from './pages/UpdateUser';
+import EditMyBlogs from './pages/EditMyBlogs';
 
 const App = () => {
   return (
@@ -27,7 +28,10 @@ const App = () => {
             path='/CreateBlog'
             element={<CreateBlog />}
           />      
-          
+          <Route
+            path='/EditMyBlogs/:id'
+            element={<EditMyBlogs />}
+          />   
         
           <Route
             path='/'
