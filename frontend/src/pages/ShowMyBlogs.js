@@ -39,9 +39,9 @@ const ShowMyBlogs = () => {
             let dataBlogs = response2.blog
             console.log(dataUsers)
             let dataMerge={}
-            dataMerge= await MyDataMerge(dataBlogs, dataUsers, user)
+            dataMerge= await MyDataMerge(dataBlogs, dataUsers, user)  // filtering blogs to show my blogs and adding user info
             console.log(dataMerge)
-            setBlogs(dataMerge)
+            setBlogs(dataMerge)  //updating blogs after filter
             setUsers(dataUsers)
 
         }
