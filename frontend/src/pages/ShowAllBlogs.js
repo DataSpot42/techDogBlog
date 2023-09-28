@@ -7,9 +7,11 @@ import { HiSearch } from 'react-icons/hi'
 import './showAllBlogs.css'
 import Cards from '../components/Card.js'
 import { readUsers } from "../api/readUsers";
+
 import {Comments} from './Comments'
 import {Link} from "react-router-dom"
 import SearchBlogs from '../components/searchBlogs.js'
+
 
 const AllBlogs = () => {
     /* let dataBlogs= [] */
@@ -49,8 +51,8 @@ const AllBlogs = () => {
             let response2 = await readBlogs() // read blogs from database
             let dataBlogs = response2.blog
             console.log(dataUsers)
-            let dataMerge={}
-            dataMerge= await DataMerge(dataBlogs, dataUsers)
+            let dataMerge = {}
+            dataMerge = await DataMerge(dataBlogs, dataUsers)
             console.log(dataMerge)
             setBlogs(dataBlogs)
             setUsers(dataUsers)
@@ -83,14 +85,12 @@ const AllBlogs = () => {
 
                 {blogs ? blogs.map((blogs, index) => <div className="blogsFlex">
                     <Card blog={blogs} />
-                    <Link className="btnLinks"
-
-to={`/Comments`}> Comments </Link>
+                    
                 </div>) : <p>Loading...</p>}
                 {/* Show all blogs */}
             </div >
             <div>
-            
+
             </div>
         </div>
 
