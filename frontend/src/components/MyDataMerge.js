@@ -1,8 +1,8 @@
 import { UserAuth } from '../components/AuthContext';
 
 
-const MyDataMerge = async (blogs, users) => {
-    const { logOut, user } = UserAuth();
+const MyDataMerge = async (blogs, users,user) => {
+    console.log(user)
     console.log(blogs)
     console.log(users)
     let myblogs = []
