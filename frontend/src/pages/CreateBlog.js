@@ -23,7 +23,7 @@ const CreateBlog = () => {
     const [likes, setLikes] = useState([]);
     const [comments, setComments] = useState([]); */
 
-    const [formData, setFormData] = useState({title: "",text: "",group: "", image: "https://i.ibb.co/McMry5w/techdog.png"});
+    const [formData, setFormData] = useState({title: "",text: "",group: "", image: "https://i.ibb.co/McMry5w/techdog.png", comments:[{userID: "0", comment:"No Comments"}]});
     const [selectedOption, setSelectedOption] = useState("Networking");
     
 
@@ -62,7 +62,8 @@ const CreateBlog = () => {
                 title: formData.title,
                 text: formData.text,
                 timeStamp: timestamp,
-                group: selectedOption
+                group: selectedOption,
+                comments: formData.comments
             }
             let response = await addBlog(blogObj)  
         } 

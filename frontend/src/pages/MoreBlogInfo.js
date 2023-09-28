@@ -1,14 +1,17 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import {editBlog} from '../api/editBlog';
+import { editBlogComments } from "../api/editBlogComments";
 import { getBlog } from "../api/getBlog";
 import { useNavigate } from "react-router-dom"
 import { useLocation } from "react-router";
 import Tags from "../components/Tags";
 import './editMyBlogs.css';
+import { UserAuth } from "../components/AuthContext";
 
 const MoreBlogInfo = (blog) => {
+    const { logOut, user } = UserAuth();
     const [inputValue, setInputValue] = useState('');
+    const [formData, setFormData] = useState({comment: ""});
     console.log(blog)
     let locationData = useLocation;
     console.log(locationData.state)
@@ -24,7 +27,7 @@ const MoreBlogInfo = (blog) => {
             _id: toUpdate._id,
             text: userInput,        
         }
-       let response = await editBlog(obj,id)         
+       let response = await editBlogComments(obj,id)         
         console.log(response)
  
         return(obj)
@@ -35,6 +38,7 @@ const MoreBlogInfo = (blog) => {
     
         const handleChange = (event) => {
             const { name, value } = event.target;
+            setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
         }
 
         const handleSubmit =  async (e) => {
@@ -47,10 +51,14 @@ const MoreBlogInfo = (blog) => {
             
             console.log(toUpdate)
             
-            let blogObj = { 
+            let blogObj = {                 
+                comments: [{
+                    userID:user.uid,
+                    comment: formData.comment
+                }]
                 
             }
-            let response = await editBlog(blogObj,id)  
+            let response = await editBlogComments(blogObj,id)  
             /* navigate */
         }
 
@@ -113,7 +121,7 @@ const MoreBlogInfo = (blog) => {
             
             <label htmlFor="text"> Add Comment:</label>
             <p></p>
-            <textarea className = "textbox" id="text" name="text" 
+            <textarea className = "textbox" id="comment" name="comment" 
             value={blog.text} onChange={handleChange}/>
           </form>
           <button className = "post" onClick={()=>handleSave()}>Add Comment</button>
