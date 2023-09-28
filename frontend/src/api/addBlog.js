@@ -3,6 +3,9 @@
 const API_URL = `http://localhost:4000`
 
 export const addBlog = async (blog) => {
+    
+
+
     /* console.log(punk.items[0]) */
     // pass paramter to function
     // create new object with 'text' key (depending on your Model)

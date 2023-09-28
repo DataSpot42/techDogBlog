@@ -27,7 +27,7 @@ const blogSchema = new Schema({
         type: String
     },
     tags: [{
-        tag: Number
+        type: String
     }],
     likes: {
         type: Number
