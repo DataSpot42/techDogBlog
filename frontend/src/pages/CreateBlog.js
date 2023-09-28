@@ -78,6 +78,7 @@ const CreateBlog = () => {
             <input className = "titlebox" type="title" id="title" name="title" value={formData.title} onChange={handleChange}/>
             <p></p>
             </div>
+            
             <div className = "select">
             <label>
 			Select an option:
@@ -90,7 +91,7 @@ const CreateBlog = () => {
                 <option  value="Consumer Tech">Consumer Tech</option>
 			</select>
 		</label>
-		<p className = "select1">Selected option: {selectedOption}</p>
+		
         </div>
         </div>
       
@@ -98,8 +99,10 @@ const CreateBlog = () => {
             <p></p>
             <textarea className = "textbox" id="text" name="text" value={formData.text} onChange={handleChange}/>
             <p></p>
+            <div className="imageLink">
             <label htmlFor="image">Add Image URL:</label>
             <p></p>
+            </div>
             <input id="image" className="image" value={formData.image} onChange={handleChange}/>
             <Tags onChange={(event) => setInputValue(event.target.value)}/>
             
