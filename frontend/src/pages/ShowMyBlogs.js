@@ -1,7 +1,7 @@
-import { useEffect, useState, React } from "react";
+import { useEffect, useState, React, forceUpdate } from "react";
 import { UserAuth } from '../components/AuthContext';
 import { readBlogs } from "../api/readBlogs";
-
+import DataMerge from "../components/dataMerge";
 import Card from '../components/Card'
 import { HiSearch } from 'react-icons/hi'
 import './showAllBlogs.css'
@@ -9,94 +9,56 @@ import Cards from '../components/Card.js'
 import { readUsers } from "../api/readUsers";
 
 
-const ShowMyBlogs = () => {
-    const { logOut, user } = UserAuth();
-    const [myUser, setMyUser] = useState();
-    console.log("Welcome to the Blogs Page")
-    const [users, setUsers] = useState([]);
-    /* useEffect(() => {
-      const items = JSON.parse(localStorage.getItem('userName'));
-      if (items) {
-       setUser(items);   // getting googleAuto data from local storage
-      }
-    }, []); */
-    console.log(user)
-    /* useEffect(()=> {
-        const fetchUser = async () = {
-            setMyUser(user)
-        }
 
-    }) */
-   
-    
-    const [myBlogs,setMyBlogs] = useState([])
+const ShowMyBlogs = () => {
+    /* let dataBlogs= [] */
+    let aUserName = ""
+    let aUserAvatar = ""
+    const { logOut, user } = UserAuth();
+    console.log("Welcome to the Blogs Page")
+    const [users, setUsers] = useState();
+
+    console.log(user)
+    const [searchTerm, setSearchTerm] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
+    const handleChangeSearch = event => {
+        setSearchTerm(event.target.value);
+
+    };
+
+
     const [blogs, setBlogs] = useState([])
     let data = 99
     useEffect(() => {
-        const fetchBlogs = async () => {
-            let data = await readBlogs() // read blogs from database   
-            setBlogs(data.blog)
-            
-        }
         const fetchUsers = async () => {
-            let userData = await readUsers()  //read users from database
-            setUsers(userData)
+            let response1 = await readUsers()  //read users from database
+            let dataUsers = response1.user
+            console.log(response1)
+            let response2 = await readBlogs() // read blogs from database
+            let dataBlogs = response2.blog
+            console.log(dataUsers)
+            let dataMerge={}
+            dataMerge= await DataMerge(dataBlogs, dataUsers)
+            console.log(dataMerge)
+            setBlogs(dataBlogs)
+            setUsers(dataUsers)
         }
-        fetchBlogs()
         fetchUsers()
-    }, [data])
-    let aUserName = ""
-    let aUserAvatar = ""
-    console.log(blogs)
-    console.log(users)
-    for (let p = 0; p < blogs.length; p++) {
-        for (let q = 0; q < users.user.length; q++) {
-            if (blogs[p].userID === users.user[q].userID) {
-
-                console.log(aUserName, aUserAvatar)
-                Object.assign(blogs[p], { userName: users.user[q].userName }, { avatar: users.user[q].avatar })
-
-                /* console.log(blogs[p].userID)
-                console.log(users.user[q].userID) */
-
-
-                /* blogs[p].push(aUserName)
-                /* blogs[p].push(users.user[q].avatar) */
-                /* console.log(`I have a match!`)
-                console.log(blogs[p]) */
-
-            }
-        }
-    }
-    
-    console.log(blogs)
-    let myBlog = []
-    for (let u = 0; u < blogs.length; u++) {
-
-        if (user.uid === blogs[u].userID) {
-            myBlog.push(blogs[u])
-
-        }
-    }
-    console.log(myBlog)
-    useEffect(() => {
-        const filterMyBlogs = async () => {
-            setMyBlogs(myBlog)
-            console.log('useEffective')
-        }
-        filterMyBlogs()
     }, [])
-    console.log(myBlogs)
 
+
+    if (!blogs) return <h1>Loading</h1>
     return (
+
         <div className="cc">
-           {/*  <h1>Welcome {user.displayName}</h1> */}
+
             <div id="search-container">
                 {/* Show name from google Auth */}
                 <form id="SearchAllbg" method="get">
                     <label>
                         { /* <button className="btn-allbg" type="submit" name="submit" className="submit" value="Search">submit</button> */}
-                        <input Id="searchBar2" Name="search" type="text" className="search" placeholder="Search Our blogs..."></input>
+                        <input value={searchTerm}
+                            onChange={handleChangeSearch} Id="searchBar2" Name="search" type="text" className="search" placeholder="Search Our blogs..."></input>
 
                     </label>
                 </form>
@@ -106,8 +68,8 @@ const ShowMyBlogs = () => {
 
 
 
-                {myBlogs? myBlogs.map((myBlogs, index) => <div className="blogsFlex">
-                    <Card myBlogs={myBlogs} />
+                {blogs ? blogs.map((blogs, index) => <div className="blogsFlex">
+                    <Card blog={blogs} />
 
                 </div>) : <p>Loading...</p>}
                 {/* Show all blogs */}
