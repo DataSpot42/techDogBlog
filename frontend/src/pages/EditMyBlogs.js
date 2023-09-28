@@ -57,19 +57,20 @@ const EditMyBlogs = (blog) => {
             alert(`title: ${formData.title}, text: ${formData.text}, Group: ${selectedOption} Image:${formData.image}`);
             console.log(formData)
             console.log(blog)
+            console.log(toUpdate)
             let timestamp = Date.now();
             let blogObj = { 
-                userID: blog.userID,
+                userID: formData.userID,
                 blogID: 456,
-                image: formData.image,
-                
-                likes: 0,
+                image: formData.image,                
+                likes: formData.likes,
                 title: formData.title,
                 text: formData.text,
-                timeStamp: timestamp,
+                timeStamp: formData.timeStamp,
                 group: selectedOption
             }
             let response = await editBlog(blogObj,id)  
+            /* navigate */
         }
 
 
@@ -79,9 +80,12 @@ const EditMyBlogs = (blog) => {
             let data = await getBlog(id)
             setToUpdate(data)
             console.log(data)
+            setFormData((prevFormData) => ({ ...prevFormData, title: data.title, text: data.text, image: data.image, tags: data.tags, userName: data.userName, userID: data.userID, timeStamp: data.timeStamp, likes: data.likes  }))
+            setSelectedOption(data.group);
         }
         fetchBlog()
     },[])
+    console.log(formData)
     if (!toUpdate) return <h1>Loading</h1>
     return (
     
@@ -99,25 +103,16 @@ const EditMyBlogs = (blog) => {
 
             <div className="detail-box">
                 <h1>{toUpdate.title}</h1>
-            <div className="cardText">{toUpdate.text}</div>
-           
-            
-            </div>
-            < div className="card-bottom">
-                
-
-               <div className="display-profile-card">
-           
-
+            <div className="cardText">{toUpdate.text}</div>          
+        </div>
+            < div className="card-bottom">               
+            <div className="display-profile-card">          
             <div className="useInfo">{toUpdate.userName}</div>
+            </div>          
+            <div className="tags-cards"><p>#Computing</p></div>
             </div>
-              
-
-
-               <div className="tags-cards"><p>#Computing</p></div>
-                
-               
-            </div>
+            
+            
             <div className = "blog">
             <h1> Update your blog post </h1>
             <form onSubmit={handleSubmit}>
