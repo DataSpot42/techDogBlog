@@ -5,7 +5,7 @@ import Networking from './images/networking.webp'
 
 
 
-const MyCard = ({blog}) => {
+const MyCard = ({blog, deleteHandler}) => {
     
     
 
@@ -16,7 +16,7 @@ const MyCard = ({blog}) => {
 
                  <div className="subjectGroup"><p>{blog.group}</p>{/**/}</div> 
                 
-                {/* <img className='card_img' src={blog.} alt="" /> */}
+                
             </div>
 
             <div className="detail-box">
@@ -44,6 +44,7 @@ const MyCard = ({blog}) => {
             > edit
 
             </Link> 
+            <button onClick={() => deleteHandler(blog)}>delete</button>
                
             </div>
             
