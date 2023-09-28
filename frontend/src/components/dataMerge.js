@@ -1,5 +1,4 @@
 
-
 const DataMerge = async (blogs, users) => {
     console.log(blogs)
     console.log(users)
