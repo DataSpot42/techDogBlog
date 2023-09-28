@@ -26,7 +26,7 @@ function removeTag(index){
             </div>
 
 ))}
-            <input onKeyDown={handleKeydown} type="text" className="tags-input" placeholder="Type somthing" />
+            <input onKeyDown={handleKeydown} type="text" className="tags-input" placeholder="Add Tags to Your Blog..." />
   </div>
     );
   }
