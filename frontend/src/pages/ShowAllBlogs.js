@@ -7,9 +7,11 @@ import { HiSearch } from 'react-icons/hi'
 import './showAllBlogs.css'
 import Cards from '../components/Card.js'
 import { readUsers } from "../api/readUsers";
+
 import {Comments} from './Comments'
 import {Link} from "react-router-dom"
 import SearchBlogs from '../components/searchBlogs.js'
+
 
 const AllBlogs = () => {
     /* let dataBlogs= [] */
