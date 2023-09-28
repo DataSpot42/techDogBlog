@@ -23,7 +23,7 @@ const CreateBlog = () => {
     const [likes, setLikes] = useState([]);
     const [comments, setComments] = useState([]); */
 
-    const [formData, setFormData] = useState({title: "",text: "",group: ""});
+    const [formData, setFormData] = useState({title: "",text: "",group: "", image: "https://i.ibb.co/McMry5w/techdog.png"});
     const [selectedOption, setSelectedOption] = useState("Networking");
     
 
@@ -39,6 +39,7 @@ const CreateBlog = () => {
 
         const handleChange = (event) => {
             const { name, value } = event.target;
+            console.log(event)
             setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
           };
 
@@ -102,8 +103,9 @@ const CreateBlog = () => {
             <div className="imageLink">
             <label htmlFor="image">Add Image URL:</label>
             <p></p>
-            </div>
-            <input id="image" className="image" value={formData.image} onChange={handleChange}/>
+
+            <input id="image" className="image" type="title" name="image" value={formData.image} onChange={handleChange}/>
+
             <Tags onChange={(event) => setInputValue(event.target.value)}/>
             
           </form>
