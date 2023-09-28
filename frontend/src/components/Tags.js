@@ -25,6 +25,7 @@ function Tags() {
     }
     return (
 
+
         <div className="tags-input-container">
             {tag.map((input, index) => (
                 <div className="tag-item" key={index}>
@@ -33,8 +34,12 @@ function Tags() {
                 </div>
 
             ))}
-            <input onKeyDown={handleKeydown} type="text" className="tags-input" placeholder="Type somthing" />
-        </div>
+            
+
+
+            <input onKeyDown={handleKeydown} type="text" className="tags-input" placeholder="Add Tags to Your Blog..." />
+  </div>
+
     );
 }
 

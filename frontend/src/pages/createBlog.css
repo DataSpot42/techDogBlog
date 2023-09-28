@@ -71,7 +71,9 @@ h1{
 .image{
     
   height: 30px;
-  max-width: 700px
+  max-width: 700px;
+  min-width:400px
+  
 }
 
 .post{
