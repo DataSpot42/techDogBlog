@@ -70,7 +70,7 @@ const CreateBlog = () => {
         return (
             <div className = "blog">
             <h1> Create a new blog post </h1>
-            <form onSubmit={handleSubmit}>
+            <form className="formsCreateBlog" onSubmit={handleSubmit}>
                 <div className = "container"> 
                 <div className = "title">
             <label  htmlFor="title">Title:</label>
