@@ -71,14 +71,14 @@ const AllBlogs = () => {
 
                 {blogs ? blogs.map((blogs, index) => <div className="blogsFlex">
                     <Card blog={blogs} />
+                    <Link className="btnLinks"
 
+to={`/Comments`}> Comments </Link>
                 </div>) : <p>Loading...</p>}
                 {/* Show all blogs */}
             </div >
             <div>
-            <Link className="btnLinks"
-
-to={`/Comments`}> Comments </Link>
+            
             </div>
         </div>
 
