@@ -5,14 +5,13 @@ const createUser = async (req, res) => {
     const { userName } = req.body
     const { realName } = req.body
     const { avatar } = req.body
-    const { email } = req.body
-    const { gender } = req.body
+    const { email } = req.body    
     const { aboutme } = req.body
 
 
-    console.log(userID,userName,realName,avatar,email,gender,aboutme)
+    console.log(userID,userName,realName,avatar,email,aboutme)
     const userObj = new User({
-        userID, userName,realName,avatar,email,gender,aboutme
+        userID, userName,realName,avatar,email,aboutme
     })
     // await for it to be saved
     const newUser = await userObj.save()
@@ -47,8 +46,7 @@ const editUser = async (req, res) => {
     userName: req.body.userName,    
     realName: req.body.realName, 
     Avatar: req.body.Avatar,
-    email: req.body.email,    
-    gender: req.body.gender,
+    email: req.body.email,       
     aboutMe: req.body.aboutMe
 }))
     res.status(200).json(user)
