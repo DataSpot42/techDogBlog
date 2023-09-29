@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import './card.css'
-import Profile from './images/profile.png'
-import Networking from './images/networking.webp'
+
 
 
 
