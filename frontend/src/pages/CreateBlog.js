@@ -108,7 +108,7 @@ const CreateBlog = () => {
             <p></p>
 </div>
             <input id="image" className="image" type="title" name="image" value={formData.image} onChange={handleChange}/>
-            </div>
+           
             <Tags onChange={(event) => setInputValue(event.target.value)}/>
             
           </form>
