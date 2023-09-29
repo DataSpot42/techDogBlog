@@ -1,0 +1,18 @@
+.av{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  padding: 20px;
+  color: #6BB4FD;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.imgAV{
+    max-width: 100px;
+    justify-content: center;
+}
+.avAoutMe{
+    margin-left: 10px;
+}

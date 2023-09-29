@@ -17,6 +17,7 @@ import EditMyBlogs from './pages/EditMyBlogs';
 import Comments from './pages/Comments'
 import MoreInfo from './pages/MoreInfo'
 import MoreBlogInfo from './pages/MoreBlogInfo';
+import ShowProfile from './pages/ShowProfile';
 
 const App = () => {
   return (
@@ -78,6 +79,11 @@ const App = () => {
             path ='/ShowMyBlogs'
             element = {<ShowMyBlogs />}
           />
+
+<Route 
+            path ='/ShowProfile'
+            element = {<ShowProfile  />}
+          />
           <Route path='/signin' element={<Signin />} />
           <Route
             path='/account'
@@ -87,7 +93,9 @@ const App = () => {
               </Protected>
             }
           />   
-                
+ 
+
+ 
         </Routes>
         </AuthContextProvider>
         </div>
