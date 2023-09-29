@@ -111,7 +111,7 @@ const Navbar = () => {
 
                         <Link to='/CreateBlog' className = "create"><span className='linkN'>CreateBlog</span></Link>
 
-                     
+                        <Link to='/ShowProfile' className = "uses"><span className='linkN'> Users </span></Link> 
                       <Link to='/RegPage' className = "reg"><span className='linkN'> Register</span></Link> 
                       </div>
                 </div>
