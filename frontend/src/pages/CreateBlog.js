@@ -13,7 +13,7 @@ const CreateBlog = () => {
     const [ trigger, setTrigger] = useState(0)
     const [inputValue, setInputValue] = useState('');
     const [saveTags, setSaveTags] = useState('');
-    const [formData, setFormData] = useState({title: "",text: "",group: "", image: "https://i.ibb.co/McMry5w/techdog.png", comments:[{userID: "0", comment:"No Comments"}]});
+    const [formData, setFormData] = useState({title: "",text: "",group: "", image: "https://i.ibb.co/McMry5w/techdog.png" });
     const [selectedOption, setSelectedOption] = useState("Networking");
     console.log(user)
     useEffect(() => {
