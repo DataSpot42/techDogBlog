@@ -28,7 +28,7 @@ const MoreBlogInfo = (blog) => {
             text: userInput,        
         }
        let response = await editBlogComments(obj,id)         
-        console.log(response)
+        
  
         return(obj)
     }
@@ -61,7 +61,7 @@ const MoreBlogInfo = (blog) => {
             let response = await editBlogComments(blogObj,id) 
             setToUpdateComms(blogObj.comments) 
             setToUpdateComms(blogObj.comments) 
-            console.log(toUpdateComms)
+            
             /* navigate */
         }
 
@@ -70,9 +70,9 @@ const MoreBlogInfo = (blog) => {
     useEffect(() => {
         const fetchBlog = async () => {
             let data = await getBlog(id)
-            setToUpdate(data)
+            
             setToUpdateComms(data.comments)
-            console.log(data)            
+                        
         }
         fetchBlog()
     },[])

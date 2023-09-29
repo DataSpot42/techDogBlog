@@ -15,7 +15,7 @@ export const editBlog = async (blog,id) => {
         title:blog.title,
         
         }
-    console.log(obj)
+    
     const response = await fetch(`${API_URL}/blogs/item/${id}`,{
         // method type?
         method: 'PATCH',

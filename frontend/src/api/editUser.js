@@ -1,7 +1,7 @@
 const API_URL = `http://localhost:4000`
 
 export const editUser = async (user,id) => {
-     console.log(user, id)
+     
     /* console.log(punk.items[0]) */
     // pass paramter to function
     // create new object with 'text' key (depending on your Model)
@@ -13,7 +13,7 @@ export const editUser = async (user,id) => {
         gender: user.gender,
         aboutMe: user.aboutMe
         }
-    console.log(obj)
+    
     const response = await fetch(`${API_URL}/users/user/${id}`,{
         // method type?
         method: 'PATCH',

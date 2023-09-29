@@ -7,10 +7,7 @@ const Account = () => {
   const [users,setUsers] = useState([])
  /*  const [user,setUser] = useState([]) */
   const { logOut, user } = UserAuth();
-  console.log(user)
-  /* useEffect(() => {  
-    localStorage.setItem('userName', JSON.stringify(user));
-  }, [user]); */
+  
   console.log(user.uid)
   
   useEffect(() => {
@@ -20,32 +17,7 @@ const Account = () => {
     }
     fetchUsers()},[10])
    console.log(users) 
-   /* const handleRegistration = () => {
-      console.log(user)
-      users? handleRegistrationp2() :{}
-
-   }  
-   const handleRegistrationp2 = () => {
-    console.log(users)
-   } */
-    
-      /* for (let i=0; i<users.user.length; i++) {
-       if (users.user[i].userID===user.iud) {
-         console.log('found you')
-   
-       } else{ console.log('you are not found')} return (<div>Got to Registration Page</div>)
-      } */
-     
-
-   
-   /* if (typeof user!='undefined' && typeof users!='undefined'){
-   for (let i=0; i<users.user.length; i++) {
-    if (users.user[i].userID===user.iud) {
-      console.log('found you')
-
-    } else{ console.log('you are not found')} return (<div>Got to Registration Page</div>)
-   }
-  } */
+  
 
   const handleSignOut = async () => {
     try {

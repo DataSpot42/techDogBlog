@@ -20,7 +20,7 @@ export const addBlog = async (blog) => {
         likes: blog.likes,
         comments: blog.comments
         }
-    console.log(obj)
+    
     const response = await fetch(`${API_URL}/blogs/item`,{
         // method type?
         method: 'POST',

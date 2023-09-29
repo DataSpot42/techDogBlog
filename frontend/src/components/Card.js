@@ -1,14 +1,10 @@
 import { Link } from "react-router-dom"
 import './card.css'
-import { useState } from "react"
-import Profile from './images/profile.png'
-import Networking from './images/networking.webp'
+
 
 
 const Card = ({blog}) => {
-    /* const [blogTags,setBlogTags] = useState(["no Tags"]);
-    setBlogTags(blog.tags)
-    console.log(blogTags) */
+   
     
     
     

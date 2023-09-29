@@ -47,17 +47,12 @@ const EditMyBlogs = (blog) => {
           };
 
         const handleSubmit =  async (e) => {
-            console.log(formData)
-            console.log(inputValue)
+            
             e.preventDefault();
             
         };   
         const handleSave = async () => {
-            console.log(`Saved`)
             
-            console.log(formData)
-            console.log(blog)
-            console.log(toUpdate)
             let timestamp = Date.now();
             let blogObj = { 
                 userID: formData.userID,
@@ -87,7 +82,7 @@ const EditMyBlogs = (blog) => {
         }
         fetchBlog()
     },[])
-    console.log(formData)
+    
     if (!toUpdate) return <h1>Loading</h1>
     return (
     

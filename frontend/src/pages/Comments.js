@@ -24,7 +24,7 @@ const handleSubmit =  async (e) => {
     
 };   
 const handleSave = async () => {
-    console.log(`Saved`)
+    
     alert(`text: ${formData.text}`);
     let timestamp = Date.now();
     let blogObj = { 

@@ -14,19 +14,6 @@ const ShowMyBlogs = () => {
     const [myUser, setMyUser] = useState();
     console.log("Welcome to the Blogs Page")
     const [users, setUsers] = useState([]);
-    /* useEffect(() => {
-      const items = JSON.parse(localStorage.getItem('userName'));
-      if (items) {
-       setUser(items);   // getting googleAuto data from local storage
-      }
-    }, []); */
-    console.log(user)
-    /* useEffect(()=> {
-        const fetchUser = async () = {
-            setMyUser(user)
-        }
-
-    }) */
    
     
     const [myBlogs,setMyBlogs] = useState([])
@@ -47,8 +34,7 @@ const ShowMyBlogs = () => {
     }, [data])
     let aUserName = ""
     let aUserAvatar = ""
-    console.log(blogs)
-    console.log(users)
+   
     for (let p = 0; p < blogs.length; p++) {
         for (let q = 0; q < users.user.length; q++) {
             if (blogs[p].userID === users.user[q].userID) {
@@ -56,20 +42,11 @@ const ShowMyBlogs = () => {
                 console.log(aUserName, aUserAvatar)
                 Object.assign(blogs[p], { userName: users.user[q].userName }, { avatar: users.user[q].avatar })
 
-                /* console.log(blogs[p].userID)
-                console.log(users.user[q].userID) */
-
-
-                /* blogs[p].push(aUserName)
-                /* blogs[p].push(users.user[q].avatar) */
-                /* console.log(`I have a match!`)
-                console.log(blogs[p]) */
-
             }
         }
     }
     
-    console.log(blogs)
+    
     let myBlog = []
     for (let u = 0; u < blogs.length; u++) {
 
@@ -78,7 +55,7 @@ const ShowMyBlogs = () => {
 
         }
     }
-    console.log(myBlog)
+    
     useEffect(() => {
         const filterMyBlogs = async () => {
             setMyBlogs(myBlog)
@@ -86,16 +63,16 @@ const ShowMyBlogs = () => {
         }
         filterMyBlogs()
     }, [])
-    console.log(myBlogs)
+    
 
     return (
         <div className="cc">
-           {/*  <h1>Welcome {user.displayName}</h1> */}
+          
             <div id="search-container">
-                {/* Show name from google Auth */}
+              
                 <form id="SearchAllbg" method="get">
                     <label>
-                        { /* <button className="btn-allbg" type="submit" name="submit" className="submit" value="Search">submit</button> */}
+                       
                         <input Id="searchBar2" Name="search" type="text" className="search" placeholder="Search Our blogs..."></input>
 
                     </label>

@@ -15,14 +15,14 @@ const CreateBlog = () => {
     const [saveTags, setSaveTags] = useState('');
     const [formData, setFormData] = useState({title: "",text: "",group: "", image: "https://i.ibb.co/McMry5w/techdog.png" });
     const [selectedOption, setSelectedOption] = useState("Networking");
-    console.log(user)
+    
     useEffect(() => {
         const tagSave = JSON.parse(localStorage.getItem('tagSave'));
         if (tagSave) {
          setSaveTags(tagSave);
         }
       }, [formData,trigger]);
-      console.log(saveTags)
+      
       
     
    
@@ -41,18 +41,17 @@ const CreateBlog = () => {
 
         const handleChange = (event) => {
             const { name, value } = event.target;
-            console.log(event)
+            
             setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
           };
 
         const handleSubmit =  async (e) => {
-            console.log(formData)
-            console.log(inputValue)
+            
             e.preventDefault();
             
         };   
         const handleSave = async () => {
-            console.log(`Saved`)
+            
             setTrigger(1)
             
             let timestamp = Date.now();

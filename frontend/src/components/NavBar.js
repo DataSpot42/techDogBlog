@@ -28,18 +28,7 @@ const Navbar = () => {
     }
     
 
-   /* const checkforUser = async() => {
-        checkUsers(myID)
-        let response = await myID
-        return response
-   }
-   checkforUser(myID) */
-   console.log(user)
-   
-    
-
-
-    
+  
 
     const search = () => {
 
@@ -64,18 +53,11 @@ const Navbar = () => {
 
                         <li><button onClick = {()=> handlerHome()}> <img className="logo" src={Logo} ></img> </button> </li>
 
- 
-
-                       
-
-
                         
 
                         <div className='nav-btns'>
 
                         {/* view search bar */}
-
-                       
 
                             {  searchTrue &&
 
@@ -89,7 +71,7 @@ const Navbar = () => {
 
  
 
-                            {/* login */}
+                           
 
                             {user?.displayName ? (
 
@@ -112,7 +94,7 @@ const Navbar = () => {
                         <Link to='/CreateBlog' className = "create"><span className='linkN'>CreateBlog</span></Link>
 
                         <Link to='/ShowProfile' className = "uses"><span className='linkN'> Users </span></Link> 
-                      <Link to='/RegPage' className = "reg"><span className='linkN'> Register</span></Link> 
+                      <Link to='/RegPage' className = "reg"><span className='linkN'> Register/Update</span></Link> 
                       </div>
                 </div>
 

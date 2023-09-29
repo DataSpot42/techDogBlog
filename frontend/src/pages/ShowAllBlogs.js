@@ -20,10 +20,10 @@ const AllBlogs = () => {
     const { logOut, user } = UserAuth();
     console.log("Welcome to the Blogs Page")
     const [users, setUsers] = useState();
-    const [blogTags,setBlogTags] = useState();
+    
     const [selectedOption, setSelectedOption] = useState("Select Group");
 
-    console.log(user)
+    
     const [searchTerm, setSearchTerm] = useState("");
     
     const [searchResults, setSearchResults] = useState([]);
@@ -71,12 +71,12 @@ const AllBlogs = () => {
 
     const handleChangeSearch = () => {
 
-        /* setBlogs(searchResult)*/
+        
 
 
     };
 
-    /* console.log(searchResults) */
+    
 
 
     const [blogs, setBlogs] = useState([])
@@ -94,7 +94,7 @@ const AllBlogs = () => {
             console.log(dataMerge)
             setBlogs(dataBlogs)
             setUsers(dataUsers)
-            setBlogTags(dataBlogs.tags)
+            
         }
         fetchUsers()
     }, [])
