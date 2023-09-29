@@ -36,12 +36,13 @@ const Card = ({blog}) => {
 
 
                <div className="tags-cards"><p>#Computing</p></div>
-               <Link className="btnLinks"
-
+              <div className= "LinkBtn"> <Link 
+                
                 to={`/MoreBlogInfo/${blog._id}`}
-
+               
             > More Info
             </Link> 
+            </div>
             </div>
             
         </div>
