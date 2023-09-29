@@ -20,6 +20,7 @@ const AllBlogs = () => {
     const { logOut, user } = UserAuth();
     console.log("Welcome to the Blogs Page")
     const [users, setUsers] = useState();
+    const [blogTags,setBlogTags] = useState();
     const [selectedOption, setSelectedOption] = useState("Select Group");
 
     console.log(user)
@@ -93,6 +94,7 @@ const AllBlogs = () => {
             console.log(dataMerge)
             setBlogs(dataBlogs)
             setUsers(dataUsers)
+            setBlogTags(dataBlogs.tags)
         }
         fetchUsers()
     }, [])

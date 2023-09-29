@@ -18,7 +18,7 @@ const MoreBlogInfo = (blog) => {
 
     console.log("welcome to MoreBlogInfo")
     const { id } = useParams()
-    
+    const [toUpdateComms, setToUpdateComms] = useState('')
     const [toUpdate, setToUpdate] = useState('')
     const [userInput, setUserInput] = useState('')
 
@@ -58,7 +58,10 @@ const MoreBlogInfo = (blog) => {
                 }]
                 
             }
-            let response = await editBlogComments(blogObj,id)  
+            let response = await editBlogComments(blogObj,id) 
+            setToUpdateComms(blogObj.comments) 
+            setToUpdateComms(blogObj.comments) 
+            console.log(toUpdateComms)
             /* navigate */
         }
 
@@ -68,6 +71,7 @@ const MoreBlogInfo = (blog) => {
         const fetchBlog = async () => {
             let data = await getBlog(id)
             setToUpdate(data)
+            setToUpdateComms(data.comments)
             console.log(data)            
         }
         fetchBlog()
@@ -107,8 +111,11 @@ const MoreBlogInfo = (blog) => {
             <p></p>
             <div className="textline">{toUpdate.text}</div>
             <label htmlFor="text">Comments:</label>
-            <p></p>
-            <div className="textline">{toUpdate.comments[0].comment}</div>
+            <p></p>            
+            {toUpdateComms ? toUpdateComms.map((toUpdateComms, index) => <div className="textLine">
+                    {toUpdateComms.comment}
+
+                </div>) : <p>Loading...</p>}
             <form onSubmit={handleSubmit}>
                 <div className = "container"> 
                 <div className = "title">
