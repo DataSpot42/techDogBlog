@@ -36,16 +36,16 @@ const MyCard = ({blog, deleteHandler}) => {
               
 
 
-               <div className="tags-cards"><p>#Computing</p></div>
-               <Link className="btnLinks"
+               <div className="ED">
+               <Link className="ED2"
 
                 to={`/EditMyBlogs/${blog._id}`}
 
             > edit
 
             </Link> 
-            <button onClick={() => deleteHandler(blog)}>delete</button>
-               
+            <button onClick={() => deleteHandler(blog)}>Delete</button>
+            </div>
             </div>
             
         </div>
