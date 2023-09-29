@@ -21,7 +21,7 @@ const RegPage = () => {
     const [found,setFound] = useState(false)
     /* const [user, setUser] = useState([]); */
     const [formData, setFormData] = useState(
-        {userName: "",aboutMe: "", realName: "", email: "", userID: ""});
+        {userName: "",aboutMe: "", realName: "", email: "", userID: user.uid});
     const [selectedOption, setSelectedOption] = useState("Select");
     let myID=0  
 
