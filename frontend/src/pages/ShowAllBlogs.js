@@ -7,7 +7,7 @@ import { HiSearch } from 'react-icons/hi'
 import './showAllBlogs.css'
 import Cards from '../components/Card.js'
 import { readUsers } from "../api/readUsers";
-
+import SearchChosenGroups from "../components/searchChosenGroups";
 import { Comments } from './Comments'
 import { Link } from "react-router-dom"
 import SearchBlogs from '../components/searchBlogs.js'
@@ -23,6 +23,7 @@ const AllBlogs = () => {
 
     console.log(user)
     const [searchTerm, setSearchTerm] = useState("");
+    const [chosenGroup, setChosenGroup] = useState("");
     const [searchResults, setSearchResults] = useState([]);
 
     const handleSubmit = async(e) => {
@@ -34,6 +35,16 @@ const AllBlogs = () => {
            searchResult = await SearchBlogs(blogs, searchTerm)
            console.log(searchResult)
            setBlogs(searchResult)
+    }
+    const handleGroupFilter = async(e) => {
+        e.preventDefault()
+        
+        console.log('searching....')
+        console.log(chosenGroup)
+           let searchGroupResult = []
+           searchGroupResult = await SearchChosenGroups (blogs, chosenGroup)
+           console.log(searchGroupResult)
+           setBlogs(searchGroupResult)
     }
     const handleClearFilter = async () => {
         let response1 = await readUsers()  //read users from database
