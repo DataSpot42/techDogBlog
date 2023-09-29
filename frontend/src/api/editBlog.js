@@ -9,7 +9,11 @@ export const editBlog = async (blog,id) => {
     // pass paramter to function
     // create new object with 'text' key (depending on your Model)
     let obj = { 
-        comments: blog.comments
+        group:blog.group,
+        image:blog.image,
+        text:blog.text,
+        title:blog.title,
+        
         }
     console.log(obj)
     const response = await fetch(`${API_URL}/blogs/item/${id}`,{
