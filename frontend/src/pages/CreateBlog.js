@@ -74,7 +74,7 @@ const CreateBlog = () => {
             <form className="formsCreateBlog" onSubmit={handleSubmit}>
                 <div className = "container"> 
                 <div className = "title">
-            <label  htmlFor="title">Title:</label>
+            <label className="titleInput" htmlFor="title">Title:</label>
             <p></p>
             <input className = "titlebox" type="title" id="title" name="title" value={formData.title} onChange={handleChange}/>
             <p></p>
