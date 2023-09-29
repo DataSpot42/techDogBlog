@@ -10,7 +10,8 @@ const SearchChosenGroups = async (blogs, search) => {
   for (let i = 0; i < blogs.length; i++) {    
       
       
-    if (search=blogs[i].group  ) {
+    if (search===blogs[i].group  ) {
+      console.log(blogs[i].group)
       searchArry.push(blogs[i])
     }
     
@@ -19,8 +20,7 @@ const SearchChosenGroups = async (blogs, search) => {
 
   }
 
-  console.log(blogs)
-  console.log(search)
+   
   console.log('searched')
   console.log(searchArry)
   return searchArry
