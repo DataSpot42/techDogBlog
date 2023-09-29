@@ -16,6 +16,7 @@ import UpdateUser from './pages/UpdateUser';
 import EditMyBlogs from './pages/EditMyBlogs';
 import Comments from './pages/Comments'
 import MoreInfo from './pages/MoreInfo'
+import MoreBlogInfo from './pages/MoreBlogInfo';
 
 const App = () => {
   return (
@@ -33,7 +34,11 @@ const App = () => {
           <Route
             path='/EditMyBlogs/:id'
             element={<EditMyBlogs />}
-          />   
+          />  
+          <Route
+            path='/MoreBlogInfo/:id'
+            element={<MoreBlogInfo />}
+          />    
 
           <Route
             path='/Comments'

@@ -68,13 +68,6 @@ const Navbar = () => {
 
                        
 
-                        <Link to='/ShowAllBLogs' className = "show">Show Blogs</Link>
-
-                        <Link to='/ShowMyBlogs' className = "show">My Blogs</Link>
-
-                        <Link to='/CreateBlog' className = "create">CreateBlog</Link>
-
-                        <Link to='/RegPage' className = "reg">Register</Link>
 
                         
 
@@ -111,7 +104,16 @@ const Navbar = () => {
                         </div>  
 
                     </ul>
+<div className='nn'>
+                        <Link to='/ShowAllBLogs' className = "show"><span className='linkN'> Show Blogs</span></Link>
 
+                        <Link to='/ShowMyBlogs' className = "show"><span className='linkN'>My Blogs</span></Link>
+
+                        <Link to='/CreateBlog' className = "create"><span className='linkN'>CreateBlog</span></Link>
+
+                     
+                      <Link to='/RegPage' className = "reg"><span className='linkN'> Register</span></Link> 
+                      </div>
                 </div>
 
  

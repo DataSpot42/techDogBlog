@@ -27,7 +27,7 @@ const EditMyBlogs = (blog) => {
         
         return(obj)
     }
-    const [formData, setFormData] = useState({title: "",text: "",group: ""});
+    const [formData, setFormData] = useState({title: "",text: "",group: "", image: ""});
     const [selectedOption, setSelectedOption] = useState("Networking");
     
 
@@ -54,7 +54,7 @@ const EditMyBlogs = (blog) => {
         };   
         const handleSave = async () => {
             console.log(`Saved`)
-            alert(`title: ${formData.title}, text: ${formData.text}, Group: ${selectedOption} Image:${formData.image}`);
+            
             console.log(formData)
             console.log(blog)
             console.log(toUpdate)
@@ -69,7 +69,9 @@ const EditMyBlogs = (blog) => {
                 timeStamp: formData.timeStamp,
                 group: selectedOption
             }
-            let response = await editBlog(blogObj,id)  
+            let response = await editBlog(blogObj,id)
+            let data = await getBlog(id)
+            setToUpdate(data)  
             /* navigate */
         }
 
@@ -89,7 +91,7 @@ const EditMyBlogs = (blog) => {
     if (!toUpdate) return <h1>Loading</h1>
     return (
     
-        <div className = "edit">
+        <div className="edit-container">
              
     
         <div className='card_item'>
@@ -111,16 +113,8 @@ const EditMyBlogs = (blog) => {
             </div>          
             <div className="tags-cards"><p>#Computing</p></div>
             </div>
-
-              
-
-
-               <div className="tags-cards"><p>#Computing</p></div>
-                
-               
-            </div>
-            </div>
-
+         </div>   
+            
             <div className = "blog">
             <h1> Update your blog post </h1>
             <form onSubmit={handleSubmit}>
@@ -144,7 +138,7 @@ const EditMyBlogs = (blog) => {
             <p></p>
             <label htmlFor="image">Add Image URL:</label>
             <p></p>
-            <input id="image" className="image" value={formData.image} onChange={handleChange}/>
+            <input id="image" className="image" name="image" value={formData.image} onChange={handleChange}/>
             <Tags onChange={(event) => setInputValue(event.target.value)}/>
             
           </form>
@@ -152,8 +146,8 @@ const EditMyBlogs = (blog) => {
 
           </div>
             
-        
         </div>
+        
 
     )
 

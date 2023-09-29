@@ -54,6 +54,7 @@
   margin-top: 100px;
   box-shadow: 0 1px 3px 2px #6BB4FD;
   border: 1px solid #6BB4FD;
+  padding: 10px;
 }
 
 a {
@@ -123,3 +124,15 @@ a {
   .button2{
     padding: 0px 5px;
   }
+  .nn{
+    background-color: #383836;
+    width: 100%;
+    padding: 4px;
+    text-align: center;
+    border-bottom: solid 3px #575656;
+    
+  }
+  .linkN{
+    margin-right: 15px;
+  }
+

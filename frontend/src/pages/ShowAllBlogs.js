@@ -7,9 +7,10 @@ import { HiSearch } from 'react-icons/hi'
 import './showAllBlogs.css'
 import Cards from '../components/Card.js'
 import { readUsers } from "../api/readUsers";
-import {Comments} from './Comments'
-import {Link} from "react-router-dom"
-import MoreInfo from './MoreInfo'
+
+import { Comments } from './Comments'
+import { Link } from "react-router-dom"
+import SearchBlogs from '../components/searchBlogs.js'
 
 
 const AllBlogs = () => {
@@ -23,10 +24,41 @@ const AllBlogs = () => {
     console.log(user)
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
-    const handleChangeSearch = event => {
-        setSearchTerm(event.target.value);
+
+    const handleSubmit = async(e) => {
+        e.preventDefault()
+        
+        console.log('searching....')
+        console.log(searchTerm)
+           let searchResult = []
+           searchResult = await SearchBlogs(blogs, searchTerm)
+           console.log(searchResult)
+           setBlogs(searchResult)
+    }
+    const handleClearFilter = async () => {
+        let response1 = await readUsers()  //read users from database
+        let dataUsers = response1.user
+        console.log(response1)
+        let response2 = await readBlogs() // read blogs from database
+        let dataBlogs = response2.blog
+        console.log(dataUsers)
+        let dataMerge = {}
+        dataMerge = await DataMerge(dataBlogs, dataUsers)
+        console.log(dataMerge)
+        setBlogs(dataBlogs)
+        setUsers(dataUsers)
+    }
+
+
+
+    const handleChangeSearch = () => {
+
+        /* setBlogs(searchResult)*/
+
 
     };
+
+    /* console.log(searchResults) */
 
 
     const [blogs, setBlogs] = useState([])
@@ -56,13 +88,17 @@ const AllBlogs = () => {
 
             <div id="search-container">
                 {/* Show name from google Auth */}
-                <form id="SearchAllbg" method="get">
+                <form id="SearchAllbg" method="get" onSubmit={(e) => handleSubmit(e)} >
                     <label>
-                        { /* <button className="btn-allbg" type="submit" name="submit" className="submit" value="Search">submit</button> */}
+                        
                         <input value={searchTerm}
-                            onChange={handleChangeSearch} Id="searchBar2" Name="search" type="text" className="search" placeholder="Search Our blogs..."></input>
-
+                            onChange={(e) => setSearchTerm(e.target.value)} Id="searchBar2" Name="search" type="text" className="search" placeholder="Search Our blogs..."></input>
+                        {/* <button onclick={handleChangeSearch}> Search </button> */}
                     </label>
+                    <div className="bb">
+                    <button className="btn-allbg" type="submit" name="submit" value="Search">submit</button>
+                    <button className="btn-allbg" onClick={(e)=>handleClearFilter(e)}>Clear Filter</button>
+                    </div>
                 </form>
             </div>
 
@@ -72,13 +108,6 @@ const AllBlogs = () => {
 
                 {blogs ? blogs.map((blogs, index) => <div className="blogsFlex">
                     <Card blog={blogs} />
-                    <Link className="btnLinks"
-
-to={`/Comments`}> Comments </Link>
-
-                    <Link className="btnLinks"
-
-to={`/MoreInfo`}> MoreInfo </Link>
 
                 </div>) : <p>Loading...</p>}
                 {/* Show all blogs */}
