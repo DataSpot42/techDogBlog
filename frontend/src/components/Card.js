@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom"
 import './card.css'
+import { useState } from "react"
 import Profile from './images/profile.png'
 import Networking from './images/networking.webp'
 
 
 const Card = ({blog}) => {
+    /* const [blogTags,setBlogTags] = useState(["no Tags"]);
+    setBlogTags(blog.tags)
+    console.log(blogTags) */
+    
     
     
 
@@ -35,7 +40,13 @@ const Card = ({blog}) => {
               
 
 
-               <div className="tags-cards"><p>#Computing</p></div>
+               <div className="tags-cards"><p>#Computing</p>
+               {/* { ? toUpdateComms.map((toUpdateComms, index) => <div className="textLine">
+                    {toUpdateComms.comment}
+
+                </div>) : <p>Loading...</p>} */}
+               
+               </div>
               <div className= "LinkBtn"> <Link 
                 
                 to={`/MoreBlogInfo/${blog._id}`}
