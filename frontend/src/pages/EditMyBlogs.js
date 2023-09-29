@@ -91,7 +91,7 @@ const EditMyBlogs = (blog) => {
     if (!toUpdate) return <h1>Loading</h1>
     return (
     
-        <div>
+        <div className="edit-container">
              
     
         <div className='card_item'>
@@ -113,7 +113,7 @@ const EditMyBlogs = (blog) => {
             </div>          
             <div className="tags-cards"><p>#Computing</p></div>
             </div>
-            
+         </div>   
             
             <div className = "blog">
             <h1> Update your blog post </h1>
@@ -156,7 +156,7 @@ const EditMyBlogs = (blog) => {
           </div>
             
         </div>
-        </div>
+        
 
     )
 

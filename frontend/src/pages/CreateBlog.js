@@ -10,21 +10,24 @@ import "../components/addblog.css"
 
 const CreateBlog = () => {
     const { logOut, user } = UserAuth();
+    const [ trigger, setTrigger] = useState(0)
     const [inputValue, setInputValue] = useState('');
-    console.log(user)
-    
-    
-    /* const [timeStamp, setTimeStamp] = useState();
-    const [title, setTitle] = useState("");
-    const [text, setText] = useState("");
-    const [group, setGroup] = useState("");
-    const [image, setImage] = useState("");
-    const [tags, setTags] = useState ([]);
-    const [likes, setLikes] = useState([]);
-    const [comments, setComments] = useState([]); */
-
-    const [formData, setFormData] = useState({title: "",text: "",group: "", image: "https://i.ibb.co/McMry5w/techdog.png"});
+    const [saveTags, setSaveTags] = useState('');
+    const [formData, setFormData] = useState({title: "",text: "",group: "", image: "https://i.ibb.co/McMry5w/techdog.png", comments:[{userID: "0", comment:"No Comments"}]});
     const [selectedOption, setSelectedOption] = useState("Networking");
+    console.log(user)
+    useEffect(() => {
+        const tagSave = JSON.parse(localStorage.getItem('tagSave'));
+        if (tagSave) {
+         setSaveTags(tagSave);
+        }
+      }, [formData,trigger]);
+      console.log(saveTags)
+      
+    
+   
+
+    
     
 
 	const  handleDropdownChange = (event) => {
@@ -34,8 +37,7 @@ const CreateBlog = () => {
 
     const navigate = useNavigate();
 
-    /* const handlerBlogInput = async (e) => {
-        e.preventDefault() */
+   
 
         const handleChange = (event) => {
             const { name, value } = event.target;
@@ -51,20 +53,23 @@ const CreateBlog = () => {
         };   
         const handleSave = async () => {
             console.log(`Saved`)
-            alert(`title: ${formData.title}, text: ${formData.text}, Group: ${selectedOption} Image:${formData.image}`);
+            setTrigger(1)
+            
             let timestamp = Date.now();
             let blogObj = { 
                 userID: user.uid,
                 blogID: 456,
                 image: formData.image,
-                
+                tags: saveTags,
                 likes: 0,
                 title: formData.title,
                 text: formData.text,
                 timeStamp: timestamp,
-                group: selectedOption
+                group: selectedOption,
+                comments: formData.comments
             }
             let response = await addBlog(blogObj)  
+            return (<h2>Saved</h2>)
         } 
 
 
@@ -91,11 +96,9 @@ const CreateBlog = () => {
                 <option  value="Web Design">Web Design</option>
                 <option  value="Consumer Tech">Consumer Tech</option>
 			</select>
-		</label>
-		
+		</label>		
         </div>
-        </div>
-      
+        </div>      
             <label htmlFor="text">Text:</label>
             <p></p>
             <textarea className = "textbox" id="text" name="text" value={formData.text} onChange={handleChange}/>
@@ -103,9 +106,9 @@ const CreateBlog = () => {
             <div className="imageLink">
             <label htmlFor="image">Add Image URL:</label>
             <p></p>
-</div>
-            <input id="image" className="image" type="title" name="image" value={formData.image} onChange={handleChange}/>
 
+            <input id="image" className="image" type="title" name="image" value={formData.image} onChange={handleChange}/>
+            </div>
             <Tags onChange={(event) => setInputValue(event.target.value)}/>
             
           </form>

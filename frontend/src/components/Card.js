@@ -36,6 +36,12 @@ const Card = ({blog}) => {
 
 
                <div className="tags-cards"><p>#Computing</p></div>
+               <Link className="btnLinks"
+
+                to={`/MoreBlogInfo/${blog._id}`}
+
+            > More Info
+            </Link> 
             </div>
             
         </div>
