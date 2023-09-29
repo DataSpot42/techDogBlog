@@ -1,28 +1,26 @@
-import { useEffect, useState, React, forceUpdate } from "react";
+import { useEffect, useState, React} from "react";
 import { UserAuth } from '../components/AuthContext';
 import { readBlogs } from "../api/readBlogs";
 import DataMerge from "../components/dataMerge";
 import UsersCard from '../components/UsersCard'
-import { HiSearch } from 'react-icons/hi'
+
 import './showAllBlogs.css'
-import Cards from '../components/Card.js'
+
 import { readUsers } from "../api/readUsers";
 import SearchChosenGroups from "../components/searchChosenGroups";
-import { Comments } from './Comments'
-import { Link } from "react-router-dom"
+
 import SearchBlogs from '../components/searchBlogs.js'
 
 
 const ShowProfile = () => {
     /* let dataBlogs= [] */
-    let aUserName = ""
-    let aUserAvatar = ""
+    
     const { logOut, user } = UserAuth();
     console.log("Welcome to the Blogs Page")
     const [users, setUsers] = useState();
     const [selectedOption, setSelectedOption] = useState("Select Group");
 
-    console.log(user)
+    
     const [searchTerm, setSearchTerm] = useState("");
     
     const [searchResults, setSearchResults] = useState([]);
@@ -36,7 +34,7 @@ const ShowProfile = () => {
         e.preventDefault()
 
         console.log('searching....')
-        console.log(searchTerm)
+        
         let searchResult = []
         searchResult = await SearchBlogs(blogs, searchTerm)
         console.log(searchResult)
@@ -61,21 +59,14 @@ const ShowProfile = () => {
         console.log(dataUsers)
         let dataMerge = {}
         dataMerge = await DataMerge(dataBlogs, dataUsers)
-        console.log(dataMerge)
+        
         setBlogs(dataBlogs)
         setUsers(dataUsers)
     }
 
 
 
-    const handleChangeSearch = () => {
-
-        /* setBlogs(searchResult)*/
-
-
-    };
-
-    /* console.log(searchResults) */
+    
 
 
     const [blogs, setBlogs] = useState([])
@@ -89,7 +80,7 @@ const ShowProfile = () => {
             let dataBlogs = response2.blog
             console.log(dataUsers)
             let dataMerge = {}
-            dataMerge = await DataMerge(dataBlogs, dataUsers)
+            dataMerge = await DataMerge(dataBlogs, dataUsers) //add user details to Blogs
             console.log(dataMerge)
             setBlogs(dataBlogs)
             setUsers(dataUsers)

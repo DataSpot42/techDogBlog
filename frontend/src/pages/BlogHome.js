@@ -2,7 +2,7 @@ import './hPage.css'
 import { useNavigate } from 'react-router-dom'
 
 function HomePage() {
-  console.log()
+  console.log(HomePage)
   const navigate = useNavigate();
   const handlerLogin = () => {
         

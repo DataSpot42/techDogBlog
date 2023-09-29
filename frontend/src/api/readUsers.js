@@ -9,8 +9,8 @@ export const readUsers = async (data) => {
      let response = await fetch(`${API_URL}/users/users`)
      // convert to json()
      data = await response.json()
-     console.log(data.user)
-     let userdata = [{data}]
+     
+     
      // return the data collect from fetch 
      return data
 }

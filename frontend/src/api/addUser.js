@@ -15,7 +15,7 @@ export const addUser = async (user) => {
         gender: user.gender,
         aboutMe: user.aboutMe
         }
-    console.log(obj)
+    
     const response = await fetch(`${API_URL}/users/user`,{
         // method type?
         method: 'POST',

@@ -45,7 +45,7 @@ const editUser = async (req, res) => {
     userID: req.body.userID,
     userName: req.body.userName,    
     realName: req.body.realName, 
-    Avatar: req.body.Avatar,
+    avatar: req.body.avatar,
     email: req.body.email,       
     aboutMe: req.body.aboutMe
 }))

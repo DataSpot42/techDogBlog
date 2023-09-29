@@ -5,7 +5,7 @@ function Tags() {
     const [tag, setTag] = useState([])
     const [tagSave, setTagSave] = useState([]);
     useEffect(() => {
-        console.log(tagSave)
+        
         localStorage.setItem('tagSave', JSON.stringify(tagSave));
     }, [tagSave]);
 
@@ -14,7 +14,7 @@ function Tags() {
         const value = e.target.value
         if (!value.trim()) return
         setTag([...tag, value])
-        console.log(tag)
+        
         setTagSave(tag)
         
         // Clear the input

@@ -44,6 +44,7 @@ const ShowMyBlogs = () => {
             console.log(dataMerge)
             setBlogs(dataMerge)  //updating blogs after filter
             setUsers(dataUsers)
+            
 
         }
         fetchUsers()
