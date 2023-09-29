@@ -12,9 +12,9 @@ const MoreBlogInfo = (blog) => {
     const { logOut, user } = UserAuth();
     const [inputValue, setInputValue] = useState('');
     const [formData, setFormData] = useState({comment: ""});
-    console.log(blog)
+    
     let locationData = useLocation;
-    console.log(locationData.state)
+    
 
     console.log("welcome to MoreBlogInfo")
     const { id } = useParams()
@@ -28,7 +28,7 @@ const MoreBlogInfo = (blog) => {
             text: userInput,        
         }
        let response = await editBlogComments(obj,id)         
-        
+        console.log(response)
  
         return(obj)
     }
@@ -47,9 +47,7 @@ const MoreBlogInfo = (blog) => {
             
         };   
         const handleSave = async () => {
-            console.log(`Saved`)
             
-            console.log(toUpdate)
             
             let blogObj = {                 
                 comments: [{
@@ -60,7 +58,6 @@ const MoreBlogInfo = (blog) => {
             }
             let response = await editBlogComments(blogObj,id) 
             setToUpdateComms(blogObj.comments) 
-            setToUpdateComms(blogObj.comments) 
             
             /* navigate */
         }
@@ -70,9 +67,9 @@ const MoreBlogInfo = (blog) => {
     useEffect(() => {
         const fetchBlog = async () => {
             let data = await getBlog(id)
-            
+            setToUpdate(data)
             setToUpdateComms(data.comments)
-                        
+                     
         }
         fetchBlog()
     },[])
