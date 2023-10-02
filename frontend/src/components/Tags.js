@@ -9,14 +9,14 @@ function Tags() {
         localStorage.setItem('tagSave', JSON.stringify(tagSave));
     }, [tagSave]);
 
-    function handleKeydown(e) {
+    const handleKeydown = async(e) => {
         if (e.key !== 'Enter') return
         const value = e.target.value
         if (!value.trim()) return
         setTag([...tag, value])
         
         setTagSave(tag)
-        
+        console.log(tag)
         // Clear the input
         e.target.value = ''
     }

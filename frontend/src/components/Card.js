@@ -4,8 +4,8 @@ import './card.css'
 
 
 const Card = ({blog}) => {
-   
-    
+    let btags=[]
+    if (blog.tags[0]) {btags = blog.tags; console.log(btags)}
     
     
 
@@ -14,7 +14,7 @@ const Card = ({blog}) => {
             <div className="card_top">
                  <div className="card-img-top"> <img src={blog.image} alt="BlogImage" height="100" width="auto" ></img>{/*blog.image*/}</div>
 
-                 <div className="subjectGroup"><p>{blog.group}</p>{/**/}</div> 
+                 <div className="subjectGroup"><p>{blog.group}</p></div> 
                 
                 {/* <img className='card_img' src={blog.} alt="" /> */}
             </div>
@@ -36,12 +36,12 @@ const Card = ({blog}) => {
               
 
 
-               <div className="tags-cards"><p>#Computing</p>
-               {/* { ? toUpdateComms.map((toUpdateComms, index) => <div className="textLine">
+               <div className="tags-cards">
+               {/* {toUpdateComms ? toUpdateComms.map((toUpdateComms, index) => <div className="textLine">
                     {toUpdateComms.comment}
 
                 </div>) : <p>Loading...</p>} */}
-               
+               {btags ? btags.map((btags) => <div className="tag-cards">#{btags}{ } </div>) : <p>No Tags</p>}
                </div>
               <div className= "LinkBtn"> <Link 
                 
